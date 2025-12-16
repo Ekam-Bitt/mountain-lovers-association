@@ -8,7 +8,7 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <Image
@@ -30,7 +30,7 @@ export function Hero() {
         </h1>
       </div>
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-none md:animate-bounce">
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-white/50 rounded-full" />
         </div>

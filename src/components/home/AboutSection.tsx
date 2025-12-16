@@ -26,7 +26,7 @@ export function AboutSection() {
       {/* Content */}
       <div className="relative z-10 max-w-[1024px] mx-auto px-6 py-16">
         {/* Title */}
-        <h2 className="text-[#ffe500] text-[60px] text-center mb-12">{t('title')}</h2>
+        <h2 className="text-[#ffe500] text-[40px] md:text-[60px] text-center mb-12">{t('title')}</h2>
 
         {/* Text Content */}
         <div className="text-white text-[20px] leading-relaxed space-y-6 tracking-wide">

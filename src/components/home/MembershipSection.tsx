@@ -19,12 +19,12 @@ export function MembershipSection() {
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
           {/* Left Side - Image & Text */}
           <div className="relative w-full md:w-[716px]">
-            <div className="relative h-[300px] md:h-[426px] overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden rounded-lg">
               <Image
                 src={imgMembership}
                 alt="Mountain climbing"
-                fill
-                className="object-cover"
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -34,7 +34,7 @@ export function MembershipSection() {
             {/* Register Button */}
             <button
               onClick={handleRegister}
-              className="w-full bg-[#013370] text-white text-[25px] py-3 hover:bg-[#035bc1] transition-colors"
+              className="w-full bg-[#013370] text-white text-[20px] md:text-[25px] py-3 min-h-[48px] hover:bg-[#035bc1] active:scale-95 transition-all"
             >
               {t('register')}
             </button>
@@ -46,9 +46,10 @@ export function MembershipSection() {
                 alt="Location map"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 25vw"
               />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded">
-                <p className="text-[#035bc1] text-[10px] text-center whitespace-nowrap">{t('visitOffice')}</p>
+                <p className="text-[#035bc1] text-xs text-center whitespace-nowrap">{t('visitOffice')}</p>
               </div>
             </div>
           </div>

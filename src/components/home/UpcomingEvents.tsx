@@ -68,7 +68,7 @@ export function UpcomingEvents() {
         <h2 className="text-[#013370] text-[40px] md:text-[60px] text-center mb-12">{t('title')}</h2>
 
         {/* Carousel */}
-        <div className="px-12">
+        <div className="px-4 md:px-12">
           <Carousel
             opts={{
               align: "start",
@@ -80,7 +80,7 @@ export function UpcomingEvents() {
               {events.map((event) => {
                 const key = event.translationKey || event.id;
                 return (
-                  <CarouselItem key={event.id} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                  <CarouselItem key={event.id} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3">
                     <div className="p-1">
                       <Card className="bg-transparent border-none shadow-none text-left">
                         <CardContent className="p-0 flex flex-col group cursor-pointer">
@@ -90,15 +90,16 @@ export function UpcomingEvents() {
                               src={event.image}
                               alt={t(`items.${key}.title`)}
                               fill
-                              className="object-cover group-hover:scale-110 transition-transform duration-300"
+                              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                              className="object-cover md:group-hover:scale-110 transition-transform duration-300"
                             />
                           </div>
 
                           {/* Content */}
                           <div className="space-y-2">
-                            <p className="text-[#7a7979] text-[11px]">{formatDate(event.date, locale)}</p>
-                            <h3 className="text-[#035bc1] text-[13px] leading-tight">{t(`items.${key}.title`)}</h3>
-                            <p className="text-[#1e73d6] text-[10px] leading-tight">{t(`items.${key}.description`)}</p>
+                            <p className="text-[#7a7979] text-xs">{formatDate(event.date, locale)}</p>
+                            <h3 className="text-[#035bc1] text-sm leading-tight">{t(`items.${key}.title`)}</h3>
+                            <p className="text-[#1e73d6] text-xs leading-tight line-clamp-3">{t(`items.${key}.description`)}</p>
                           </div>
                         </CardContent>
                       </Card>
@@ -107,8 +108,8 @@ export function UpcomingEvents() {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="text-[#035bc1] border-[#035bc1] bg-transparent hover:bg-[#035bc1] hover:text-white disabled:opacity-50 disabled:pointer-events-none -left-4 md:-left-12" />
-            <CarouselNext className="text-[#035bc1] border-[#035bc1] bg-transparent hover:bg-[#035bc1] hover:text-white disabled:opacity-50 disabled:pointer-events-none -right-4 md:-right-12" />
+            <CarouselPrevious className="hidden md:flex text-[#035bc1] border-[#035bc1] bg-transparent hover:bg-[#035bc1] hover:text-white disabled:opacity-50 disabled:pointer-events-none -left-4 md:-left-12" />
+            <CarouselNext className="hidden md:flex text-[#035bc1] border-[#035bc1] bg-transparent hover:bg-[#035bc1] hover:text-white disabled:opacity-50 disabled:pointer-events-none -right-4 md:-right-12" />
           </Carousel>
         </div>
       </div>

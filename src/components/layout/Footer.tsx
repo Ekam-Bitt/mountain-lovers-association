@@ -20,6 +20,7 @@ export function Footer() {
                 src={imgLogo}
                 alt="Mountain Lover's Association Logo"
                 fill
+                sizes="134px"
                 className="object-contain"
               />
             </div>
@@ -41,11 +42,11 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             {/* Terms & Privacy */}
             <div className="flex gap-4 text-[10px] md:text-right w-full justify-center md:justify-start">
-              <Link href="/terms" className="hover:text-[#ffe500] transition-colors whitespace-nowrap">
+              <Link href="/terms" className="hover:text-[#ffe500] md:hover:scale-110 active:scale-95 transition-all whitespace-nowrap">
                 {t('links.terms')}
               </Link>
               <span>/</span>
-              <Link href="/privacy" className="hover:text-[#ffe500] transition-colors whitespace-nowrap">
+              <Link href="/privacy" className="hover:text-[#ffe500] md:hover:scale-110 active:scale-95 transition-all whitespace-nowrap">
                 {t('links.privacy')}
               </Link>
             </div>

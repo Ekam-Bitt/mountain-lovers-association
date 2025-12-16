@@ -30,6 +30,11 @@ export async function generateMetadata({
   };
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default async function RootLayout({
   children,
   params,
