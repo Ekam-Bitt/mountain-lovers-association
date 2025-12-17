@@ -56,8 +56,8 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json(user, { status: 201 });
-    } catch (error: any) {
-        if (error.message === 'Too Many Requests') {
+    } catch (error) {
+        if (error instanceof Error && error.message === 'Too Many Requests') {
             return NextResponse.json({ error: 'Too Many Requests' }, { status: 429 });
         }
         console.error('Signup error:', error);

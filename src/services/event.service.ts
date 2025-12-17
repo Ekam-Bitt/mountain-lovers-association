@@ -3,7 +3,7 @@ import prisma from '@/lib/db';
 import { ensureSlug } from '@/lib/validation';
 import { checkSlugUniqueness } from '@/lib/slug';
 import { AuditService } from '@/services/audit.service';
-import { Event, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 export class EventService {
     /**

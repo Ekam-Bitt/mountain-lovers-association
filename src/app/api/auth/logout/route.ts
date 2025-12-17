@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-export async function POST(req: NextRequest) {
+// POST /api/auth/logout - Logout user
+export async function POST() {
     const cookieStore = await cookies();
     cookieStore.delete('auth_token');
 

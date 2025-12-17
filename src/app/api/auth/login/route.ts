@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     try {
         // Rate limiting
         await checkRateLimit(ip);
-    } catch (error: any) {
+    } catch {
         return NextResponse.json(
             { error: 'Too many login attempts. Please try again later.' },
             { status: 429 }
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
         // Check brute-force protection
         try {
             checkBruteForce(email);
-        } catch (error: any) {
+        } catch (error) {
             return NextResponse.json(
                 { error: error instanceof Error ? error.message : 'Account temporarily locked' },
                 { status: 429 }
@@ -91,8 +91,8 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json({ success: true, user: { id: user.id, email: user.email, role: user.role } });
-    } catch (error: any) {
-        if (error.message === 'Too Many Requests') {
+    } catch (error) {
+        if (error instanceof Error && error.message === 'Too Many Requests') {
             return NextResponse.json({ error: 'Too Many Requests' }, { status: 429 });
         }
         console.error('Login error:', error);

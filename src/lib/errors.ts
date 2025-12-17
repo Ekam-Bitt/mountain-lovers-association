@@ -92,7 +92,7 @@ export function formatErrorResponse(error: unknown): ErrorResponse {
 }
 
 // Error handler wrapper for Next.js route handlers
-export function withErrorHandler<T extends any[]>(
+export function withErrorHandler<T extends unknown[]>(
     handler: (...args: T) => Promise<NextResponse>
 ) {
     return async (...args: T): Promise<NextResponse> => {

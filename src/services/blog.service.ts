@@ -3,7 +3,7 @@ import prisma from '@/lib/db';
 import { ensureSlug } from '@/lib/validation';
 import { checkSlugUniqueness } from '@/lib/slug';
 import { AuditService } from '@/services/audit.service';
-import { Blog, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 export class BlogService {
     /**
@@ -117,7 +117,7 @@ export class BlogService {
             entityId: blog.id,
             action,
             userId: userId,
-            changes: updates as Record<string, any>,
+            changes: updates as Record<string, unknown>,
         });
 
         return blog;

@@ -17,7 +17,7 @@ export const POST = withErrorHandler(async (req: NextRequest, context: RouteCont
     // Rate limit: 10 registrations per hour per IP
     try {
         await checkRegistrationRateLimit(ip);
-    } catch (error) {
+    } catch {
         throw new ConflictError('Too many registration attempts. Please try again later.');
     }
 

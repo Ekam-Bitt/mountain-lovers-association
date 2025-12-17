@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { EventService } from '@/services/event.service';
 import { withErrorHandler } from '@/lib/errors';
 import { getPaginationParams, createPaginationMeta } from '@/lib/utils';
-import prisma from '@/lib/db';
+
 
 // GET /api/public/events - List published events (public, no auth)
 export const GET = withErrorHandler(async (req: NextRequest) => {

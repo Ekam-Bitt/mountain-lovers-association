@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { BlogService } from '@/services/blog.service';
 import { withErrorHandler } from '@/lib/errors';
-import { requireVerifiedMember, getSession } from '@/lib/auth-guard';
+import { requireVerifiedMember } from '@/lib/auth-guard';
 import { createBlogSchema } from '@/lib/validation';
 import { getPaginationParams, createPaginationMeta } from '@/lib/utils';
 

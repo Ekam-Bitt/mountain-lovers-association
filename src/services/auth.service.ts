@@ -29,7 +29,7 @@ export class AuthService {
     /**
      * Sign a JWT payload
      */
-    static async signJWT(payload: Record<string, any>, expiresIn: string = '7d'): Promise<string> {
+    static async signJWT(payload: Record<string, unknown>, expiresIn: string = '7d'): Promise<string> {
         return new SignJWT(payload)
             .setProtectedHeader({ alg: 'HS256' })
             .setIssuedAt()
@@ -44,7 +44,7 @@ export class AuthService {
         try {
             const { payload } = await jwtVerify(token, ENCODED_SECRET);
             return payload as T;
-        } catch (err) {
+        } catch {
             return null;
         }
     }

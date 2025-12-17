@@ -4,6 +4,7 @@ import { requireAdmin } from '@/lib/auth-guard';
 import { createAdminNoteSchema } from '@/lib/validation';
 import { getPaginationParams, createPaginationMeta } from '@/lib/utils';
 import prisma from '@/lib/db';
+import { Prisma } from '@prisma/client';
 
 // POST /api/admin/notes - Create admin note
 export const POST = withErrorHandler(async (req: NextRequest) => {
@@ -33,7 +34,7 @@ export const GET = withErrorHandler(async (req: NextRequest) => {
     const entityId = searchParams.get('entityId');
 
     // Build where clause
-    const where: any = { deletedAt: null };
+    const where: Prisma.AdminNoteWhereInput = { deletedAt: null };
     if (entityType) where.entityType = entityType;
     if (entityId) where.entityId = entityId;
 

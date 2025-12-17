@@ -6,13 +6,14 @@ export async function checkSlugUniqueness(
     slug: string,
     excludeId?: string
 ): Promise<void> {
-    const modelMap: any = {
+    const modelMap = {
         news: prisma.news,
         event: prisma.event,
         blog: prisma.blog,
     };
 
-    const existing = await modelMap[model].findFirst({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const existing = await (modelMap[model] as any).findFirst({
         where: {
             slug,
             id: excludeId ? { not: excludeId } : undefined,
