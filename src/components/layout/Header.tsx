@@ -77,7 +77,7 @@ export function Header() {
             <button
               key={key}
               onClick={() => handleNavClick(key)}
-              className={`text-[12px] uppercase hover:text-[#ffe500] transition-colors cursor-pointer ${isScrolled ? 'text-[#013370]' : 'text-white'
+              className={`text-[12px] uppercase hover:text-[#ffe500] focus-visible:ring-2 focus-visible:ring-[#ffe500] outline-none rounded-sm transition-colors cursor-pointer ${isScrolled ? 'text-[#013370]' : 'text-white'
                 }`}
             >
               {t(`nav.${key}`)}
@@ -87,7 +87,7 @@ export function Header() {
           {/* Language Switcher */}
           <button
             onClick={handleLanguageChange}
-            className={`flex items-center gap-2 text-[12px] uppercase hover:text-[#ffe500] transition-colors cursor-pointer border border-current px-3 py-1 rounded-full ${isScrolled ? 'text-[#013370]' : 'text-white'
+            className={`flex items-center gap-2 text-[12px] uppercase hover:text-[#ffe500] focus-visible:ring-2 focus-visible:ring-[#ffe500] outline-none transition-colors cursor-pointer border border-current px-3 py-1 rounded-full ${isScrolled ? 'text-[#013370]' : 'text-white'
               }`}
           >
             <Globe className="w-4 h-4" />
@@ -98,10 +98,10 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-[#013370] transition-colors"
+          className="md:hidden p-2 min-w-[48px] min-h-[48px] flex items-center justify-center text-[#013370] transition-colors"
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -113,7 +113,7 @@ export function Header() {
               <button
                 key={key}
                 onClick={() => handleNavClick(key)}
-                className="text-[#013370] text-[14px] uppercase hover:text-[#ffe500] transition-colors cursor-pointer text-left py-2"
+                className="text-[#013370] text-lg font-bold uppercase hover:text-[#ffe500] transition-colors cursor-pointer text-left py-4 border-b border-gray-100 last:border-0"
               >
                 {t(`nav.${key}`)}
               </button>
@@ -122,9 +122,9 @@ export function Header() {
             {/* Mobile Language Switcher */}
             <button
               onClick={handleLanguageChange}
-              className="flex items-center gap-2 text-[#013370] text-[14px] uppercase hover:text-[#ffe500] transition-colors cursor-pointer text-left py-2 border-t border-gray-100 mt-2 pt-4"
+              className="flex items-center gap-2 text-[#013370] text-lg font-bold uppercase hover:text-[#ffe500] transition-colors cursor-pointer text-left py-4 border-t border-gray-100 mt-2"
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="w-5 h-5" />
               <span>{locale === 'en' ? 'SWITCH TO BENGALI' : 'SWITCH TO ENGLISH'}</span>
             </button>
           </div>
