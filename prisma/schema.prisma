@@ -1,0 +1,168 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  role         String    @default("MEMBER_UNVERIFIED")
+  verifiedAt   DateTime?
+
+  // OAuth fields (for future use)
+  provider     String?
+  providerId   String?
+
+  // Relations
+  newsArticles      News[]
+  eventsOrganized   Event[]
+  blogs             Blog[]
+  eventRegistrations EventRegistration[]
+  auditLogs         AuditLog[]
+  adminNotes        AdminNote[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? // Soft delete support
+
+  @@index([email])
+  @@index([role])
+}
+
+model News {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String    // Full content
+  excerpt     String?   // Short summary
+  status      String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  publishedAt DateTime?
+  
+  authorId    String
+  author      User      @relation(fields: [authorId], references: [id])
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime? // Soft delete support
+
+  @@index([slug])
+  @@index([status])
+  @@index([publishedAt])
+  @@index([authorId])
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  description String
+  location    String
+  status      String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  startDate   DateTime
+  endDate     DateTime
+  capacity    Int?      // Max participants (null = unlimited)
+  publishedAt DateTime?
+
+  organizerId String
+  organizer   User      @relation(fields: [organizerId], references: [id])
+
+  registrations EventRegistration[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime? // Soft delete support
+
+  @@index([slug])
+  @@index([status])
+  @@index([startDate])
+  @@index([organizerId])
+}
+
+model Blog {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String    // Full content
+  excerpt     String?   // Short summary
+  status      String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  publishedAt DateTime?
+
+  authorId    String
+  author      User      @relation(fields: [authorId], references: [id])
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime? // Soft delete support
+
+  @@index([slug])
+  @@index([authorId])
+  @@index([status])
+  @@index([publishedAt])
+}
+
+model EventRegistration {
+  id           String    @id @default(cuid())
+  status       String    @default("PENDING") // PENDING, CONFIRMED, CANCELLED
+  registeredAt DateTime  @default(now())
+  cancelledAt  DateTime?
+
+  eventId      String
+  event        Event     @relation(fields: [eventId], references: [id])
+
+  userId       String
+  user         User      @relation(fields: [userId], references: [id])
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime? // Soft delete support
+
+  @@unique([eventId, userId]) // One registration per user per event
+  @@index([status])
+  @@index([eventId])
+  @@index([userId])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  entityType String   // e.g., "User", "Event", "Blog"
+  entityId   String   // ID of the entity
+  action     String   // e.g., "CREATE", "UPDATE", "DELETE", "PUBLISH"
+  changes    String?  // JSON string of changes
+  ipAddress  String?
+  userAgent  String?
+
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+
+  createdAt  DateTime @default(now())
+
+  @@index([entityType])
+  @@index([entityId])
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model AdminNote {
+  id         String    @id @default(cuid())
+  entityType String    // e.g., "User", "Event"
+  entityId   String    // ID of the entity
+  content    String
+
+  authorId   String
+  author     User      @relation(fields: [authorId], references: [id])
+
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime? // Soft delete support
+
+  @@index([entityType])
+  @@index([entityId])
+  @@index([authorId])
+}
+
+

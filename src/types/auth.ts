@@ -1,0 +1,1 @@
+export type Role = 'ADMIN' | 'MEMBER_VERIFIED' | 'MEMBER_UNVERIFIED';
