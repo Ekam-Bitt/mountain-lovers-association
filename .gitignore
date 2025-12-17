@@ -30,10 +30,19 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
+
+# Security
+*.pem
+*.key
+*.cert
+id_rsa
+id_rsa.pub
 
 # OS / Editor noise
 .DS_Store
 .vscode/
+.idea/
 *.swp
 *.swo
 
@@ -43,3 +52,10 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+/src/generated/prisma
+
+# SQLite databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite-journal

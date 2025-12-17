@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { getTranslations, getLocale } from 'next-intl/server';
 import { BlogItem } from "@/types/domain";
-import { formatDate } from "@/lib/date";
+import { formatDate } from "@/lib/utils";
 import imgBlog1 from "@/assets/fb8368d3946e1c662b9b0d3a10662fb7bd1673a3.png";
 import imgBlog2 from "@/assets/59338168212132e260612dde60e83f93504cd3ad.png";
 import imgBlog3 from "@/assets/fc3c17cc72371f6d536e65dc52e1e813c6c44f13.png";

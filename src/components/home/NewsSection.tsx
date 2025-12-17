@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import { useTranslations, useLocale } from 'next-intl';
 import { NewsItem } from "@/types/domain";
-import { formatDate } from "@/lib/date";
+import { formatDate } from "@/lib/utils";
 import imgRectangle11 from "@/assets/01c6bf1ed4c92c0359a313530397ac9d611be8c0.png";
 import imgRectangle12 from "@/assets/9c9578812120d8faa91bb08d1e218fe608bc21cf.png";
 import imgRectangle13 from "@/assets/79f9b6e98bb18fdd1c3a0f8ec8b7a78e7a1eec16.png";

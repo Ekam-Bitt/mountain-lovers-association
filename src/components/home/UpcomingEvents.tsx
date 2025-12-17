@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import { useTranslations, useLocale } from 'next-intl';
 import { EventItem } from "@/types/domain";
-import { formatDate } from "@/lib/date";
+import { formatDate } from "@/lib/utils";
 import imgRectangle11 from "@/assets/01c6bf1ed4c92c0359a313530397ac9d611be8c0.png";
 
 export function UpcomingEvents() {
