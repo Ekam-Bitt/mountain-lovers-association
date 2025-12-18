@@ -5,18 +5,22 @@ Production-grade backend API for a local mountain climbing club platform built w
 ## Quick Start
 
 ### 1. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Setup Environment
+
 Create `.env`:
+
 ```env
 DATABASE_URL="file:./dev.db"
 JWT_SECRET="your-super-secret-jwt-key-change-in-production"
 ```
 
 ### 3. Setup Database
+
 ```bash
 # Generate Prisma Client
 npx prisma generate
@@ -29,6 +33,7 @@ npx prisma db seed
 ```
 
 ### 4. Run Development Server
+
 ```bash
 npm run dev
 ```
@@ -40,6 +45,7 @@ API available at: `http://localhost:3000/api`
 ## Default Credentials
 
 After seeding:
+
 - **Admin**: `admin@example.com` / `Admin123!@#`
 - **Member**: `member@example.com` / `Member123!@#`
 
@@ -91,23 +97,27 @@ After seeding:
 ## Key Features
 
 ### Authentication & Authorization
+
 - JWT-based auth with HTTP-only cookies
 - Role-based access control (ADMIN, MEMBER_VERIFIED, MEMBER_UNVERIFIED)
 - Progressive brute-force protection (5/10/15 failed attempts)
 - Rate limiting on auth endpoints (5 req/min)
 
 ### Content Management
+
 - **Admin**: News & Events (full CRUD, publishing workflow)
 - **Members**: Blogs (ownership-based access)
 - **Public**: Read-only cached endpoints (5-min cache)
 
 ### Event Registration
+
 - Capacity enforcement
 - Idempotent registration
 - Status management (PENDING → CONFIRMED/CANCELLED)
 - Rate limited (10 reg/hour per IP)
 
 ### Security
+
 - Argon2 password hashing
 - Security headers (HSTS, CSP, XSS protection)
 - Soft deletes on all models
@@ -118,6 +128,7 @@ After seeding:
 ## Database
 
 ### Models
+
 - User (with role-based access)
 - News, Event, Blog (with publishing workflow)
 - EventRegistration (with capacity management)
@@ -125,6 +136,7 @@ After seeding:
 - AuditLog (immutable audit trail)
 
 ### Migrations
+
 ```bash
 # Create migration
 npx prisma migrate dev --name description
@@ -134,6 +146,7 @@ npx prisma migrate deploy
 ```
 
 ### Prisma Studio
+
 ```bash
 npx prisma studio
 ```
@@ -143,16 +156,19 @@ npx prisma studio
 ## Development
 
 ### Run Dev Server
+
 ```bash
 npm run dev
 ```
 
 ### Type Check
+
 ```bash
 npx tsc --noEmit
 ```
 
 ### Reset Database
+
 ```bash
 npx prisma migrate reset
 npx prisma db seed
@@ -162,11 +178,11 @@ npx prisma db seed
 
 ## Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
+| Variable       | Description                | Default         |
+| -------------- | -------------------------- | --------------- |
 | `DATABASE_URL` | Database connection string | `file:./dev.db` |
-| `JWT_SECRET` | Secret for JWT signing | Required |
-| `NODE_ENV` | Environment | `development` |
+| `JWT_SECRET`   | Secret for JWT signing     | Required        |
+| `NODE_ENV`     | Environment                | `development`   |
 
 ---
 

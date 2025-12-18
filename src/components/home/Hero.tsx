@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import imgHeroBg from "@/assets/hero.png";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export function Hero() {
-  const t = useTranslations('Hero');
+  const t = useTranslations("Hero");
 
   return (
     <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden">
@@ -25,8 +25,9 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-[1280px] mx-auto min-h-[400px] flex items-center justify-center">
         <h1 className="text-white text-[45px] md:text-[90px] font-bold leading-none tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-          {t('titleLine1')}<br />
-          {t('titleLine2')}
+          {t("titleLine1")}
+          <br />
+          {t("titleLine2")}
         </h1>
       </div>
       {/* Scroll indicator */}

@@ -1,0 +1,90 @@
+import Image from "next/image";
+import { notFound } from "next/navigation";
+// import { getTranslations } from "next-intl/server";
+import { formatDate } from "@/lib/utils";
+import { NewsItem } from "@/types/domain";
+import { PublicApiService } from "@/lib/services/public-api";
+
+async function getNews(id: string): Promise<NewsItem | null> {
+  try {
+    return await PublicApiService.getNewsById(id);
+  } catch (error) {
+    console.error(`Failed to fetch news ${id}:`, error);
+    return null;
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const news = await getNews(id);
+
+  if (!news) {
+    return {
+      title: "News Not Found",
+    };
+  }
+
+  return {
+    title: `${news.title} - Mountain Lovers Club`,
+    description: news.description,
+  };
+}
+
+export default async function NewsDetailPage({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}) {
+  const { id, locale } = await params;
+
+  // Validate locale if needed, or use it for translations
+  // const t = await getTranslations({ locale, namespace: "NewsSection" });
+
+  const news = await getNews(id);
+
+  if (!news) {
+    notFound();
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0356c2] pb-20 pt-32">
+      <article className="max-w-4xl mx-auto px-6 bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+        {/* Header */}
+        <header className="text-center mb-12">
+          <h1 className="text-[#0356c2] text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            {news.title}
+          </h1>
+
+          <div className="flex items-center justify-center gap-6 text-black/60">
+            <time dateTime={news.date}>{formatDate(news.date, locale)}</time>
+          </div>
+        </header>
+
+        {/* Featured Image */}
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-lg">
+          <Image
+            src={news.image}
+            alt={news.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Content */}
+        <div className="prose prose-lg max-w-none prose-headings:text-[#0356c2] prose-p:text-black/80 prose-strong:text-black">
+          {/* Render content safely if it's HTML, or as text if plain. Assuming plain or safe HTML for now. */}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: (news.description || "").replace(/\n/g, "<br/>"),
+            }}
+          />
+        </div>
+      </article>
+    </div>
+  );
+}

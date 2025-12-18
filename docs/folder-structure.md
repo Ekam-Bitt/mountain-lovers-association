@@ -1,6 +1,7 @@
 # Backend Folder Structure
 
 ## Overview
+
 This document explains the organization of the backend codebase for the Mountain Lovers Association platform.
 
 ---
@@ -46,6 +47,7 @@ This document explains the organization of the backend codebase for the Mountain
 ## Key Directories Explained
 
 ### `/prisma`
+
 **Purpose**: Database schema, migrations, and seed data.
 
 - `schema.prisma` - Defines all models (User, News, Event, Blog, etc.)
@@ -53,6 +55,7 @@ This document explains the organization of the backend codebase for the Mountain
 - `seed.ts` - Creates initial admin user and sample data
 
 ### `/src/app/api`
+
 **Purpose**: API route handlers using Next.js App Router.
 
 **Organization**: Routes are organized by domain and access level:
@@ -66,23 +69,26 @@ This document explains the organization of the backend codebase for the Mountain
 **Pattern**: Each route file exports HTTP method handlers (GET, POST, PATCH, DELETE).
 
 ### `/src/lib`
+
 **Purpose**: Shared business logic and utilities.
 
-| File | Purpose |
-|------|---------|
+| File            | Purpose                                                                  |
+| --------------- | ------------------------------------------------------------------------ |
 | `auth-guard.ts` | Authorization guards (`requireAuth`, `requireAdmin`, `requireOwnership`) |
-| `auth-util.ts` | Password hashing (Argon2), JWT sign/verify |
-| `db.ts` | Prisma client singleton |
-| `errors.ts` | Custom error classes, error handler wrapper |
-| `rate-limit.ts` | Rate limiting & brute-force protection |
-| `types.ts` | Shared TypeScript types (e.g., `Role`) |
-| `utils.ts` | Audit logs, pagination, slug generation |
-| `validation.ts` | Zod validation schemas for all models |
+| `auth-util.ts`  | Password hashing (Argon2), JWT sign/verify                               |
+| `db.ts`         | Prisma client singleton                                                  |
+| `errors.ts`     | Custom error classes, error handler wrapper                              |
+| `rate-limit.ts` | Rate limiting & brute-force protection                                   |
+| `types.ts`      | Shared TypeScript types (e.g., `Role`)                                   |
+| `utils.ts`      | Audit logs, pagination, slug generation                                  |
+| `validation.ts` | Zod validation schemas for all models                                    |
 
 ### `/docs`
+
 **Purpose**: Human-readable documentation.
 
 All documentation is in Markdown format and covers:
+
 - API contracts (this file)
 - Auth flow & role transitions
 - Error handling patterns
@@ -94,13 +100,16 @@ All documentation is in Markdown format and covers:
 ## API Route Patterns
 
 ### Next.js App Router
+
 Routes are defined using the file system:
+
 - `/api/auth/login/route.ts` → `POST /api/auth/login`
 - `/api/admin/news/[id]/route.ts` → `GET/PATCH/DELETE /api/admin/news/:id`
 
 ### Common Patterns
 
 #### 1. Route Handler with Auth Guard
+
 ```typescript
 export const GET = withErrorHandler(async (req: NextRequest) => {
   await requireAdmin(); // Authorization check
@@ -109,6 +118,7 @@ export const GET = withErrorHandler(async (req: NextRequest) => {
 ```
 
 #### 2. Dynamic Route with Context
+
 ```typescript
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -118,7 +128,7 @@ export const PATCH = withErrorHandler(
   async (req: NextRequest, context: RouteContext) => {
     const { id } = await context.params;
     // ... route logic
-  }
+  },
 );
 ```
 
@@ -127,13 +137,15 @@ export const PATCH = withErrorHandler(
 ## Import Aliases
 
 Using TypeScript path aliases for clean imports:
+
 - `@/lib/*` → `src/lib/*`
 - `@/app/*` → `src/app/*`
 
 Example:
+
 ```typescript
-import { requireAdmin } from '@/lib/auth-guard';
-import prisma from '@/lib/db';
+import { requireAdmin } from "@/lib/auth-guard";
+import prisma from "@/lib/db";
 ```
 
 ---

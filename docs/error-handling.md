@@ -1,6 +1,7 @@
 # Error Handling Documentation
 
 ## Overview
+
 Standardized error handling ensures consistent API responses and better debugging. All errors follow a uniform response structure.
 
 ---
@@ -8,6 +9,7 @@ Standardized error handling ensures consistent API responses and better debuggin
 ## Error Response Format
 
 ### Standard Shape
+
 ```typescript
 {
   error: string;           // Human-readable message
@@ -18,6 +20,7 @@ Standardized error handling ensures consistent API responses and better debuggin
 ```
 
 ### Example Response
+
 ```json
 {
   "error": "Authentication required. Please log in.",
@@ -33,10 +36,11 @@ Standardized error handling ensures consistent API responses and better debuggin
 All custom errors extend `AppError` base class.
 
 ### UnauthorizedError (401)
+
 **Use**: User must log in to access resource
 
 ```typescript
-throw new UnauthorizedError('Authentication required. Please log in.');
+throw new UnauthorizedError("Authentication required. Please log in.");
 ```
 
 **Default**: `"Unauthorized"`
@@ -44,10 +48,11 @@ throw new UnauthorizedError('Authentication required. Please log in.');
 ---
 
 ### ForbiddenError (403)
+
 **Use**: User is authenticated but lacks permission
 
 ```typescript
-throw new ForbiddenError('Access denied. Admin role required.');
+throw new ForbiddenError("Access denied. Admin role required.");
 ```
 
 **Default**: `"Forbidden"`
@@ -55,10 +60,11 @@ throw new ForbiddenError('Access denied. Admin role required.');
 ---
 
 ### NotFoundError (404)
+
 **Use**: Resource does not exist
 
 ```typescript
-throw new NotFoundError('Blog post not found.');
+throw new NotFoundError("Blog post not found.");
 ```
 
 **Default**: `"Not found"`
@@ -66,11 +72,12 @@ throw new NotFoundError('Blog post not found.');
 ---
 
 ### ValidationError (400)
+
 **Use**: Input data is invalid
 
 ```typescript
-throw new ValidationError('Invalid input data', {
-  fieldErrors: { email: ['Invalid email format'] }
+throw new ValidationError("Invalid input data", {
+  fieldErrors: { email: ["Invalid email format"] },
 });
 ```
 
@@ -79,10 +86,11 @@ throw new ValidationError('Invalid input data', {
 ---
 
 ### ConflictError (409)
+
 **Use**: Resource conflict (e.g., duplicate slug)
 
 ```typescript
-throw new ConflictError('A blog post with this slug already exists.');
+throw new ConflictError("A blog post with this slug already exists.");
 ```
 
 **Default**: `"Resource conflict"`
@@ -92,11 +100,13 @@ throw new ConflictError('A blog post with this slug already exists.');
 ## Error Handler Wrapper
 
 ### `withErrorHandler`
+
 Automatically catches and formats errors in route handlers.
 
 **Usage**:
+
 ```typescript
-import { withErrorHandler } from '@/lib/errors';
+import { withErrorHandler } from "@/lib/errors";
 
 export const POST = withErrorHandler(async (req) => {
   // Your route logic
@@ -105,6 +115,7 @@ export const POST = withErrorHandler(async (req) => {
 ```
 
 **Benefits**:
+
 - Consistent error responses
 - Automatic Zod error formatting
 - Proper HTTP status codes
@@ -115,87 +126,92 @@ export const POST = withErrorHandler(async (req) => {
 ## Usage Examples
 
 ### Example 1: Admin-Only Route
+
 ```typescript
 // src/app/api/admin/news/route.ts
-import { withErrorHandler, ForbiddenError } from '@/lib/errors';
-import { requireAdmin } from '@/lib/auth-guard';
+import { withErrorHandler, ForbiddenError } from "@/lib/errors";
+import { requireAdmin } from "@/lib/auth-guard";
 
 export const POST = withErrorHandler(async (req) => {
   const session = await requireAdmin();
   // requireAdmin throws UnauthorizedError or ForbiddenError if needed
-  
+
   // Create news...
 });
 ```
 
 ### Example 2: Resource Not Found
+
 ```typescript
-import { withErrorHandler, NotFoundError } from '@/lib/errors';
-import prisma from '@/lib/db';
+import { withErrorHandler, NotFoundError } from "@/lib/errors";
+import prisma from "@/lib/db";
 
 export const GET = withErrorHandler(async (req, { params }) => {
   const blog = await prisma.blog.findUnique({
-    where: { id: params.id, deletedAt: null }
+    where: { id: params.id, deletedAt: null },
   });
-  
+
   if (!blog) {
-    throw new NotFoundError('Blog post not found');
+    throw new NotFoundError("Blog post not found");
   }
-  
+
   return NextResponse.json(blog);
 });
 ```
 
 ### Example 3: Validation Error
+
 ```typescript
-import { withErrorHandler } from '@/lib/errors';
-import { createBlogSchema } from '@/lib/validation';
+import { withErrorHandler } from "@/lib/errors";
+import { createBlogSchema } from "@/lib/validation";
 
 export const POST = withErrorHandler(async (req) => {
   const body = await req.json();
   const data = createBlogSchema.parse(body);
   // If validation fails, ZodError is thrown
   // withErrorHandler automatically converts it to a 400 response
-  
+
   // Create blog...
 });
 ```
 
 ### Example 4: Ownership Validation
+
 ```typescript
-import { withErrorHandler, ForbiddenError } from '@/lib/errors';
-import { requireVerifiedMember, requireOwnership } from '@/lib/auth-guard';
+import { withErrorHandler, ForbiddenError } from "@/lib/errors";
+import { requireVerifiedMember, requireOwnership } from "@/lib/auth-guard";
 
 export const PATCH = withErrorHandler(async (req, { params }) => {
   const session = await requireVerifiedMember();
   const blog = await prisma.blog.findUnique({ where: { id: params.id } });
-  
+
   if (!blog) {
-    throw new NotFoundError('Blog not found');
+    throw new NotFoundError("Blog not found");
   }
-  
-  await requireOwnership(blog.authorId, session, 'blog post');
+
+  await requireOwnership(blog.authorId, session, "blog post");
   // Throws ForbiddenError if user doesn't own the blog
-  
+
   // Update blog...
 });
 ```
 
 ### Example 5: Duplicate Resource
+
 ```typescript
-import { withErrorHandler, ConflictError } from '@/lib/errors';
+import { withErrorHandler, ConflictError } from "@/lib/errors";
 
 export const POST = withErrorHandler(async (req) => {
   const slug = generateSlug(title);
-  
+
   const existing = await prisma.blog.findUnique({
-    where: { slug }
+    where: { slug },
   });
-  
+
   if (existing) {
-    throw new ConflictError('A blog post with this slug already exists.');
+    throw new ConflictError("A blog post with this slug already exists.");
   }
-  
+
   // Create blog...
 });
 ```
@@ -205,6 +221,7 @@ export const POST = withErrorHandler(async (req) => {
 ## Error Response Examples
 
 ### Unauthorized (401)
+
 ```json
 {
   "error": "Authentication required. Please log in.",
@@ -214,6 +231,7 @@ export const POST = withErrorHandler(async (req) => {
 ```
 
 ### Forbidden (403)
+
 ```json
 {
   "error": "Access denied. Required role: ADMIN",
@@ -223,6 +241,7 @@ export const POST = withErrorHandler(async (req) => {
 ```
 
 ### Validation Error (400)
+
 ```json
 {
   "error": "Validation failed",
@@ -239,6 +258,7 @@ export const POST = withErrorHandler(async (req) => {
 ```
 
 ### Not Found (404)
+
 ```json
 {
   "error": "Blog post not found",
@@ -248,6 +268,7 @@ export const POST = withErrorHandler(async (req) => {
 ```
 
 ### Conflict (409)
+
 ```json
 {
   "error": "A blog post with this slug already exists.",

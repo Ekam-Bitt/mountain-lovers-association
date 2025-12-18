@@ -1,118 +1,27 @@
-'use client';
-
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Image from "next/image";
-import { useTranslations, useLocale } from 'next-intl';
+import { Suspense } from "react";
+// import { api } from "@/lib/api";
+// import { EventDTO, PaginatedResponseDTO } from "@/types/dto";
 import { EventItem } from "@/types/domain";
-import { formatDate } from "@/lib/utils";
-import imgRectangle11 from "@/assets/01c6bf1ed4c92c0359a313530397ac9d611be8c0.png";
+import { UpcomingEventsClient } from "./UpcomingEventsClient";
 
-export function UpcomingEvents() {
-  const t = useTranslations('UpcomingEvents');
-  const locale = useLocale();
+import { PublicApiService } from "@/lib/services/public-api";
 
-  const events: (EventItem & { translationKey?: string })[] = [
-    {
-      id: 'item1',
-      title: 'Event 1',
-      description: 'Desc',
-      image: imgRectangle11,
-      date: '2024-01-28',
-    },
-    {
-      id: 'item1-copy',
-      title: 'Event 1 Copy',
-      description: 'Desc',
-      image: imgRectangle11,
-      date: '2024-01-28',
-      translationKey: 'item1'
-    },
-    {
-      id: 'item3',
-      title: 'Event 3',
-      description: 'Desc',
-      image: imgRectangle11,
-      date: '2024-02-15',
-    },
-    {
-      id: 'item4',
-      title: 'Event 4',
-      description: 'Desc',
-      image: imgRectangle11,
-      date: '2024-03-05',
-    }
-  ];
-
-  if (!events || events.length === 0) {
-    return (
-      <section id="events" className="relative bg-white py-16">
-        <div className="max-w-[1280px] mx-auto px-6 text-center text-[#013370]">
-          <h2 className="text-[40px] md:text-[60px] mb-8">{t('title')}</h2>
-          <p className="text-xl opacity-80">{t('noEvents')}</p>
-        </div>
-      </section>
-    );
+async function getEvents(): Promise<EventItem[]> {
+  try {
+    const response = await PublicApiService.getEvents();
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch events:", error);
+    return [];
   }
+}
+
+export async function UpcomingEvents() {
+  const events = await getEvents();
 
   return (
-    <section id="events" className="relative bg-white py-16">
-      <div className="max-w-[1280px] mx-auto px-6">
-        {/* Title */}
-        <h2 className="text-[#013370] text-[40px] md:text-[60px] text-center mb-12">{t('title')}</h2>
-
-        {/* Carousel */}
-        <div className="px-4 md:px-12">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4 cursor-grab active:cursor-grabbing">
-              {events.map((event) => {
-                const key = event.translationKey || event.id;
-                return (
-                  <CarouselItem key={event.id} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <Card className="bg-transparent border-none shadow-none text-left">
-                        <CardContent className="p-0 flex flex-col group cursor-pointer">
-                          {/* Image */}
-                          <div className="relative aspect-square overflow-hidden rounded-lg mb-4">
-                            <Image
-                              src={event.image}
-                              alt={t(`items.${key}.title`)}
-                              fill
-                              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                              className="object-cover md:group-hover:scale-110 transition-transform duration-300"
-                            />
-                          </div>
-
-                          {/* Content */}
-                          <div className="space-y-2">
-                            <p className="text-[#7a7979] text-xs">{formatDate(event.date, locale)}</p>
-                            <h3 className="text-[#035bc1] text-sm leading-tight">{t(`items.${key}.title`)}</h3>
-                            <p className="text-[#1e73d6] text-xs leading-tight line-clamp-3">{t(`items.${key}.description`)}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex text-[#035bc1] border-[#035bc1] bg-transparent hover:bg-[#035bc1] hover:text-white disabled:opacity-50 disabled:pointer-events-none -left-4 md:-left-12" />
-            <CarouselNext className="hidden md:flex text-[#035bc1] border-[#035bc1] bg-transparent hover:bg-[#035bc1] hover:text-white disabled:opacity-50 disabled:pointer-events-none -right-4 md:-right-12" />
-          </Carousel>
-        </div>
-      </div>
-    </section>
+    <Suspense fallback={null}>
+      <UpcomingEventsClient events={events} />
+    </Suspense>
   );
 }
