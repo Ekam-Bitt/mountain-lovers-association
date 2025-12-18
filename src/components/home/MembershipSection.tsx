@@ -1,16 +1,18 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import imgMembership from "@/assets/1487fb9b56fc9a075eeb3555a15f1ce90fc4a202.png";
 import imgMap from "@/assets/fe369899f9499675e74faf19aa84ec1403c41212.png";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+// import { toast } from "sonner";
 
 export function MembershipSection() {
-  const t = useTranslations('MembershipSection');
+  const t = useTranslations("MembershipSection");
+  const router = useRouter();
 
   const handleRegister = () => {
-    // Handle registration logic
-    alert('Registration form would open here');
+    router.push("/login");
   };
 
   return (
@@ -36,7 +38,7 @@ export function MembershipSection() {
               onClick={handleRegister}
               className="w-full bg-[#013370] text-white text-[20px] md:text-[25px] py-3 min-h-[48px] hover:bg-[#035bc1] active:scale-95 transition-all"
             >
-              {t('register')}
+              {t("register")}
             </button>
 
             {/* Map */}
@@ -49,7 +51,9 @@ export function MembershipSection() {
                 sizes="(max-width: 768px) 100vw, 25vw"
               />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded">
-                <p className="text-[#035bc1] text-xs text-center whitespace-nowrap">{t('visitOffice')}</p>
+                <p className="text-[#035bc1] text-xs text-center whitespace-nowrap">
+                  {t("visitOffice")}
+                </p>
               </div>
             </div>
           </div>

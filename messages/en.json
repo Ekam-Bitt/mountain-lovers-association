@@ -1,174 +1,175 @@
 {
-    "HomePage": {
-        "title": "Mountain Lover's Club"
-    },
-    "Hero": {
-        "titleLine1": "MOUNTAIN LOVER'S",
-        "titleLine2": "ASSOCIATION, ASANSOL"
-    },
-    "NewsSection": {
-        "title": "NEWS",
-        "noNews": "No news updates available at the moment.",
-        "items": {
-            "item1": {
-                "title": "Winter Expedition to Sandakphu",
-                "description": "Join our team for the annual winter trek to the highest peak of West Bengal."
-            },
-            "item2": {
-                "title": "Rock Climbing Workshop for Beginners",
-                "description": "A 3-day intensive workshop at Susunia Hills covering basics of knots and belaying."
-            },
-            "item3": {
-                "title": "Annual General Meeting 2024",
-                "description": "All members are requested to attend the AGM at the club premises at 10 AM."
-            },
-            "item4": {
-                "title": "Eco-Tourism Awareness Camp",
-                "description": "Promoting sustainable trekking practices in the Himalayas."
-            },
-            "item5": {
-                "title": "High Altitude Trekking Guide",
-                "description": "Certification course for aspiring mountain guides starting this summer."
-            }
-        }
-    },
-    "UpcomingEvents": {
-        "title": "UPCOMING EVENTS",
-        "noEvents": "No upcoming events scheduled.",
-        "items": {
-            "item1": {
-                "title": "50th Annual Rock Climbing Camp",
-                "description": "The 50th Rock climbing course was held from 24th-Dec ..."
-            },
-            "item3": {
-                "title": "Winter Mountaineering Expedition",
-                "description": "Join us for an exciting winter expedition ..."
-            },
-            "item4": {
-                "title": "Ice Climbing Workshop",
-                "description": "Learn advanced ice climbing techniques ..."
-            }
-        }
-    },
-    "MembershipSection": {
-        "register": "REGISTER",
-        "visitOffice": "Visit our Office"
-    },
-    "AboutSection": {
-        "title": "ABOUT",
-        "p1": "The International Federation of Mountain Guides Associations (IFMGA) is an international umbrella for mountain guide associations from 25 countries in Europe, Asia, the Americas, and Oceania, representing a total of almost 7,000 guides who are licensed according to IFMGA training standards.",
-        "p2": "As mountain guides, we are exposed to rapid and unprecedented changes in our mountain work environment due to the impact of climate change. The speed and change of intensity of earth systems events presents unprecedented risk mitigation challenges requiring rapid strategies and adaptations to reduce our vulnerabilities. This is true not only for mountain guides but for the lives and livelihoods of all inhabitants of mountain regions.",
-        "p3": "It is our responsibility to act immediately and collectively, not only to limit climate change in the coming decades, but also in the face of many other environmental crises that are equally immediate and urgent, including habitat degradation and biodiversity loss. Young guides have a central role in developing new ways of thinking about sustainable mountain guiding, creating new practices and building strategies to safeguard our clients and ourselves.",
-        "p4": "IFMGA will collaborate with partners including the Mountain Partnership Secretariat on a definition and methods for Sustainable Mountain Guiding (SMG) and develop implementation documents, resources and training for mountain guides.",
-        "p5": "Sustainable mountain guiding is grounded in UN 2030 Agenda for Sustainable Development and its 17 Sustainable Development Goals and the UN resolution on Sustainable Mountain Development."
-    },
-    "Newsletter": {
-        "quote": "Climb the mountain not to plant your flag, but to embrace the challenge, to enjoy the air and behold the view.",
-        "label": "JOIN OUR NEWSLETTER :",
-        "placeholder": "Enter your email",
-        "button": "SIGN UP"
-    },
-    "ContactSection": {
-        "subtitle": "GET IN TOUCH",
-        "title": "READY TO JOIN US ON OUR NEXT EXPEDITION?",
-        "button": "CONTACT US"
-    },
-    "BlogsSection": {
-        "title": "COMMUNITY BLOGS",
-        "readMore": "READ MORE",
-        "checkoutMore": "CHECKOUT MORE BLOGS",
-        "noBlogs": "No blogs available.",
-        "items": {
-            "item1": {
-                "title": "EVEREST BASE CAMP TREK",
-                "excerpt": "As mountain guides, we are exposed to rapid and unprecedented changes in our mountain work environment due to the impact of climate change. The speed and change of intensity of earth systems events presents unprecedented risk mitigation challenges ..."
-            }
-        }
-    },
-    "BlogsPage": {
-        "title": "OUR BLOGS",
-        "items": {
-            "item1": {
-                "title": "The Hidden Trails of K2",
-                "excerpt": "Exploring the lesser-known paths leading to K2 base camp reveals a world of untouched beauty and formidable challenges..."
-            },
-            "item2": {
-                "title": "Sustainability in Alpinism",
-                "excerpt": "How modern climbers are adopting eco-friendly practices to preserve the pristine nature of high-altitude environments for future generations."
-            },
-            "item3": {
-                "title": "Gear Talk: Winter 2024 Essentials",
-                "excerpt": "A deep dive into the latest equipment technology keeping mountaineers safe and warm in extreme sub-zero conditions."
-            },
-            "item4": {
-                "title": "Training for 8000m Peaks",
-                "excerpt": "Physical conditioning is just one part of the puzzle. Mental resilience and altitude acclimatization strategies are equally vital."
-            },
-            "item5": {
-                "title": "Glacier Navigation 101",
-                "excerpt": "Understanding crevasse formation and safe route finding on dynamic glacial terrain is essential for any aspiring alpinist."
-            }
-        },
-        "endOfList": "End of list"
-    },
-    "PrivacyPage": {
-        "title": "Privacy Policy",
-        "intro": "This privacy policy sets out how Mountain Lover's Association Asansol uses and protects any information that you give us when you use this website.",
-        "section1": {
-            "title": "1. Information Collection",
-            "text": "We may collect the following information:",
-            "list": {
-                "item1": "Name and contact information including email address",
-                "item2": "Demographic information such as postcode, preferences and interests"
-            }
-        },
-        "section2": {
-            "title": "2. Use of Information",
-            "text": "We require this information to understand your needs and provide you with a better service, and in particular for internal record keeping and improving our programs."
-        }
-    },
-    "TermsPage": {
-        "title": "Terms and Conditions",
-        "intro": "Welcome to the Mountain Lover's Association Asansol website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use.",
-        "section1": {
-            "title": "1. Terms of Use",
-            "text": "The content of the pages of this website is for your general information and use only. It is subject to change without notice."
-        },
-        "section2": {
-            "title": "2. Membership",
-            "text": "Membership fees are non-refundable. Participation in mountaineering events is at your own risk."
-        },
-        "section3": {
-            "title": "3. Privacy",
-            "text": "Please refer to our Privacy Policy for details on how we collect and use your data."
-        }
-    },
-    "Metadata": {
-        "title": "Mountain Lover's Club",
-        "description": "Official website of Mountain Lover's Association, Asansol"
-    },
-    "Header": {
-        "nav": {
-            "membership": "MEMBERSHIP",
-            "programs": "PROGRAMS",
-            "media": "MEDIA",
-            "blog": "BLOG",
-            "about": "ABOUT",
-            "contact": "CONTACT",
-            "login": "LOGIN"
-        }
-    },
-    "Footer": {
-        "title": "MOUNTAIN LOVER'S ASSOCIATION ASANSOL",
-        "address": {
-            "line1": "Municipal Market Rd, Chelidanga,",
-            "line2": "Asansol - 713301,",
-            "line3": "West Bengal, IN"
-        },
-        "links": {
-            "terms": "Terms and Conditions",
-            "privacy": "Privacy Policy"
-        },
-        "copyright": "MADE BY: EKAM BITT"
+  "HomePage": {
+    "title": "Mountain Lover's Club"
+  },
+  "Hero": {
+    "titleLine1": "MOUNTAIN LOVER'S",
+    "titleLine2": "ASSOCIATION, ASANSOL"
+  },
+  "NewsSection": {
+    "title": "NEWS",
+    "noNews": "No news updates available at the moment.",
+    "items": {
+      "item1": {
+        "title": "Winter Expedition to Sandakphu",
+        "description": "Join our team for the annual winter trek to the highest peak of West Bengal."
+      },
+      "item2": {
+        "title": "Rock Climbing Workshop for Beginners",
+        "description": "A 3-day intensive workshop at Susunia Hills covering basics of knots and belaying."
+      },
+      "item3": {
+        "title": "Annual General Meeting 2024",
+        "description": "All members are requested to attend the AGM at the club premises at 10 AM."
+      },
+      "item4": {
+        "title": "Eco-Tourism Awareness Camp",
+        "description": "Promoting sustainable trekking practices in the Himalayas."
+      },
+      "item5": {
+        "title": "High Altitude Trekking Guide",
+        "description": "Certification course for aspiring mountain guides starting this summer."
+      }
     }
+  },
+  "UpcomingEvents": {
+    "title": "UPCOMING EVENTS",
+    "noEvents": "No upcoming events scheduled.",
+    "viewAllEvents": "CHECKOUT ALL EVENTS",
+    "items": {
+      "item1": {
+        "title": "50th Annual Rock Climbing Camp",
+        "description": "The 50th Rock climbing course was held from 24th-Dec ..."
+      },
+      "item3": {
+        "title": "Winter Mountaineering Expedition",
+        "description": "Join us for an exciting winter expedition ..."
+      },
+      "item4": {
+        "title": "Ice Climbing Workshop",
+        "description": "Learn advanced ice climbing techniques ..."
+      }
+    }
+  },
+  "MembershipSection": {
+    "register": "REGISTER",
+    "visitOffice": "Visit our Office"
+  },
+  "AboutSection": {
+    "title": "ABOUT",
+    "p1": "The International Federation of Mountain Guides Associations (IFMGA) is an international umbrella for mountain guide associations from 25 countries in Europe, Asia, the Americas, and Oceania, representing a total of almost 7,000 guides who are licensed according to IFMGA training standards.",
+    "p2": "As mountain guides, we are exposed to rapid and unprecedented changes in our mountain work environment due to the impact of climate change. The speed and change of intensity of earth systems events presents unprecedented risk mitigation challenges requiring rapid strategies and adaptations to reduce our vulnerabilities. This is true not only for mountain guides but for the lives and livelihoods of all inhabitants of mountain regions.",
+    "p3": "It is our responsibility to act immediately and collectively, not only to limit climate change in the coming decades, but also in the face of many other environmental crises that are equally immediate and urgent, including habitat degradation and biodiversity loss. Young guides have a central role in developing new ways of thinking about sustainable mountain guiding, creating new practices and building strategies to safeguard our clients and ourselves.",
+    "p4": "IFMGA will collaborate with partners including the Mountain Partnership Secretariat on a definition and methods for Sustainable Mountain Guiding (SMG) and develop implementation documents, resources and training for mountain guides.",
+    "p5": "Sustainable mountain guiding is grounded in UN 2030 Agenda for Sustainable Development and its 17 Sustainable Development Goals and the UN resolution on Sustainable Mountain Development."
+  },
+  "Newsletter": {
+    "quote": "Climb the mountain not to plant your flag, but to embrace the challenge, to enjoy the air and behold the view.",
+    "label": "JOIN OUR NEWSLETTER :",
+    "placeholder": "Enter your email",
+    "button": "SIGN UP"
+  },
+  "ContactSection": {
+    "subtitle": "GET IN TOUCH",
+    "title": "READY TO JOIN US ON OUR NEXT EXPEDITION?",
+    "button": "CONTACT US"
+  },
+  "BlogsSection": {
+    "title": "COMMUNITY BLOGS",
+    "readMore": "READ MORE",
+    "checkoutMore": "CHECKOUT ALL BLOGS",
+    "noBlogs": "No blogs available.",
+    "items": {
+      "item1": {
+        "title": "EVEREST BASE CAMP TREK",
+        "excerpt": "As mountain guides, we are exposed to rapid and unprecedented changes in our mountain work environment due to the impact of climate change. The speed and change of intensity of earth systems events presents unprecedented risk mitigation challenges ..."
+      }
+    }
+  },
+  "BlogsPage": {
+    "title": "OUR BLOGS",
+    "items": {
+      "item1": {
+        "title": "The Hidden Trails of K2",
+        "excerpt": "Exploring the lesser-known paths leading to K2 base camp reveals a world of untouched beauty and formidable challenges..."
+      },
+      "item2": {
+        "title": "Sustainability in Alpinism",
+        "excerpt": "How modern climbers are adopting eco-friendly practices to preserve the pristine nature of high-altitude environments for future generations."
+      },
+      "item3": {
+        "title": "Gear Talk: Winter 2024 Essentials",
+        "excerpt": "A deep dive into the latest equipment technology keeping mountaineers safe and warm in extreme sub-zero conditions."
+      },
+      "item4": {
+        "title": "Training for 8000m Peaks",
+        "excerpt": "Physical conditioning is just one part of the puzzle. Mental resilience and altitude acclimatization strategies are equally vital."
+      },
+      "item5": {
+        "title": "Glacier Navigation 101",
+        "excerpt": "Understanding crevasse formation and safe route finding on dynamic glacial terrain is essential for any aspiring alpinist."
+      }
+    },
+    "endOfList": "End of list"
+  },
+  "PrivacyPage": {
+    "title": "Privacy Policy",
+    "intro": "This privacy policy sets out how Mountain Lover's Association Asansol uses and protects any information that you give us when you use this website.",
+    "section1": {
+      "title": "1. Information Collection",
+      "text": "We may collect the following information:",
+      "list": {
+        "item1": "Name and contact information including email address",
+        "item2": "Demographic information such as postcode, preferences and interests"
+      }
+    },
+    "section2": {
+      "title": "2. Use of Information",
+      "text": "We require this information to understand your needs and provide you with a better service, and in particular for internal record keeping and improving our programs."
+    }
+  },
+  "TermsPage": {
+    "title": "Terms and Conditions",
+    "intro": "Welcome to the Mountain Lover's Association Asansol website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use.",
+    "section1": {
+      "title": "1. Terms of Use",
+      "text": "The content of the pages of this website is for your general information and use only. It is subject to change without notice."
+    },
+    "section2": {
+      "title": "2. Membership",
+      "text": "Membership fees are non-refundable. Participation in mountaineering events is at your own risk."
+    },
+    "section3": {
+      "title": "3. Privacy",
+      "text": "Please refer to our Privacy Policy for details on how we collect and use your data."
+    }
+  },
+  "Metadata": {
+    "title": "Mountain Lover's Club",
+    "description": "Official website of Mountain Lover's Association, Asansol"
+  },
+  "Header": {
+    "nav": {
+      "membership": "MEMBERSHIP",
+      "programs": "PROGRAMS",
+      "media": "MEDIA",
+      "blog": "BLOG",
+      "about": "ABOUT",
+      "contact": "CONTACT",
+      "login": "LOGIN"
+    }
+  },
+  "Footer": {
+    "title": "MOUNTAIN LOVER'S ASSOCIATION ASANSOL",
+    "address": {
+      "line1": "Municipal Market Rd, Chelidanga,",
+      "line2": "Asansol - 713301,",
+      "line3": "West Bengal, IN"
+    },
+    "links": {
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy"
+    },
+    "copyright": "MADE BY: EKAM BITT"
+  }
 }

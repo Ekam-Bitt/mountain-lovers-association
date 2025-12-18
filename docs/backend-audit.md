@@ -47,6 +47,7 @@ The backend structure is **intentional, clean, and production-ready**. The team 
 ### 🟡 Minor Issues
 
 #### Issue #1: Unused Frontend Middleware File
+
 **File**: `/src/proxy.ts`  
 **Status**: UNUSED (not imported anywhere)  
 **Description**: Frontend-focused middleware for next-intl localization  
@@ -54,16 +55,19 @@ The backend structure is **intentional, clean, and production-ready**. The team 
 **Recommendation**: Safe to leave (frontend will use it later)
 
 #### Issue #2: Dev-Only Verification Script
+
 **File**: `/verify-auth.mjs`  
 **Status**: Dev helper (root level)  
 **Description**: Manual auth verification script from Prompt 1  
 **Impact**: None (dev tool, not in production builds)  
 **Recommendation**: Either:
-   - Move to `/scripts/verify-auth.mjs`
-   - Keep as-is (acceptable for dev tools)
-   - Document in README under "Development Tools"
+
+- Move to `/scripts/verify-auth.mjs`
+- Keep as-is (acceptable for dev tools)
+- Document in README under "Development Tools"
 
 #### Issue #3: Unused Date Utility
+
 **File**: `/src/lib/date.ts`  
 **Status**: Not imported anywhere  
 **Description**: Locale-aware date formatting helper  
@@ -141,19 +145,20 @@ cp .env .env.example
 
 All routes are correctly classified:
 
-| Route Group | Purpose | Count | Status |
-|-------------|---------|-------|--------|
-| `/api/auth` | Public authentication | 3 | ✅ Correct |
-| `/api/admin` | Admin-only CRUD | 7 | ✅ Correct |
-| `/api/blogs` | Member content | 2 | ✅ Correct |
-| `/api/events` | Event registration | 2 | ✅ Correct |
-| `/api/public` | Public read-only | 3 | ✅ Correct |
+| Route Group   | Purpose               | Count | Status     |
+| ------------- | --------------------- | ----- | ---------- |
+| `/api/auth`   | Public authentication | 3     | ✅ Correct |
+| `/api/admin`  | Admin-only CRUD       | 7     | ✅ Correct |
+| `/api/blogs`  | Member content        | 2     | ✅ Correct |
+| `/api/events` | Event registration    | 2     | ✅ Correct |
+| `/api/public` | Public read-only      | 3     | ✅ Correct |
 
 **No misclassified routes detected.**
 
 ### Route Naming Review
 
 ✅ **All routes are RESTful and predictable:**
+
 - `POST /api/auth/signup` - Clear
 - `GET /api/public/news` - Clear
 - `PATCH /api/blogs/[id]` - Clear
@@ -167,19 +172,20 @@ All routes are correctly classified:
 
 ### `/src/lib` Audit
 
-| File | Lines | Purpose | Status |
-|------|-------|---------|--------|
-| `auth-guard.ts` | 56 | Auth guards | ✅ Active |
-| `auth-util.ts` | 30 | Password/JWT | ✅ Active |
-| `date.ts` | 12 | Date formatting | ⚠️ **UNUSED** |
-| `db.ts` | 13 | Prisma client | ✅ Active |
-| `errors.ts` | 80 | Error handling | ✅ Active |
-| `rate-limit.ts` | 95 | Rate limiting | ✅ Active |
-| `types.ts` | 3 | Type definitions | ✅ Active |
-| `utils.ts` | 105 | Audit/pagination | ✅ Active |
-| `validation.ts` | 200+ | Zod schemas | ✅ Active |
+| File            | Lines | Purpose          | Status        |
+| --------------- | ----- | ---------------- | ------------- |
+| `auth-guard.ts` | 56    | Auth guards      | ✅ Active     |
+| `auth-util.ts`  | 30    | Password/JWT     | ✅ Active     |
+| `date.ts`       | 12    | Date formatting  | ⚠️ **UNUSED** |
+| `db.ts`         | 13    | Prisma client    | ✅ Active     |
+| `errors.ts`     | 80    | Error handling   | ✅ Active     |
+| `rate-limit.ts` | 95    | Rate limiting    | ✅ Active     |
+| `types.ts`      | 3     | Type definitions | ✅ Active     |
+| `utils.ts`      | 105   | Audit/pagination | ✅ Active     |
+| `validation.ts` | 200+  | Zod schemas      | ✅ Active     |
 
 **Findings**:
+
 - ✅ No duplicate helpers
 - ✅ Clear responsibility per file
 - ⚠️ 1 unused file (`date.ts`)
@@ -191,20 +197,24 @@ All routes are correctly classified:
 ### Environment Variables
 
 **Current** (`.env`):
+
 ```env
 DATABASE_URL="file:./dev.db"
 JWT_SECRET="..."
 ```
 
 **✅ Good**:
+
 - Secrets not hardcoded
 - Database URL configurable
 
 **⚠️ Missing**:
+
 - `.env.example` file for documentation
 - Comments explaining each variable
 
 **Recommendation**:
+
 ```env
 # Database connection (SQLite for dev, PostgreSQL for prod)
 DATABASE_URL="file:./dev.db"
@@ -242,8 +252,8 @@ NODE_ENV="development"
 ### Frontend Files (Leave Untouched)
 
 1. **`src/proxy.ts`** ✅ (frontend middleware)
-2. **`src/components/**`** ✅ (frontend UI)
-3. **`src/app/[locale]/**`** ✅ (frontend pages)
+2. **`src/components/**`\*\* ✅ (frontend UI)
+3. **`src/app/[locale]/**`\*\* ✅ (frontend pages)
 
 ---
 
@@ -251,13 +261,13 @@ NODE_ENV="development"
 
 ### ✅ **Frontend-Integration Friendly**
 
-| Criteria | Status | Notes |
-|----------|--------|-------|
-| API entry points obvious? | ✅ | `/api/*` routes clear |
-| Response shapes centralized? | ✅ | Standard pagination in `utils.ts` |
-| Error formats consistent? | ✅ | `withErrorHandler` wrapper |
-| Auth enforcement predictable? | ✅ | Guards per route group |
-| Documentation complete? | ✅ | 7 docs + README |
+| Criteria                      | Status | Notes                             |
+| ----------------------------- | ------ | --------------------------------- |
+| API entry points obvious?     | ✅     | `/api/*` routes clear             |
+| Response shapes centralized?  | ✅     | Standard pagination in `utils.ts` |
+| Error formats consistent?     | ✅     | `withErrorHandler` wrapper        |
+| Auth enforcement predictable? | ✅     | Guards per route group            |
+| Documentation complete?       | ✅     | 7 docs + README                   |
 
 ### Expected Frontend Integration Points
 
@@ -283,6 +293,7 @@ DELETE /api/admin/news/[id]
 ```
 
 **All endpoints return consistent JSON:**
+
 ```json
 {
   "data": {...} | [...],
@@ -291,6 +302,7 @@ DELETE /api/admin/news/[id]
 ```
 
 **Errors always return:**
+
 ```json
 {
   "error": "message",
@@ -337,6 +349,7 @@ DELETE /api/admin/news/[id]
 ### ✅ **Critical** (Do Before Committing)
 
 1. **Remove unused date utility**
+
    ```bash
    rm src/lib/date.ts
    ```
@@ -350,15 +363,17 @@ DELETE /api/admin/news/[id]
 ### 🟡 **Optional** (Nice to Have)
 
 3. **Move dev script to `/scripts`**
+
    ```bash
    mkdir scripts
    mv verify-auth.mjs scripts/
    ```
 
 4. **Add development tools section to README**
+
    ```markdown
    ## Development Tools
-   
+
    - `scripts/verify-auth.mjs` - Test auth endpoints
    ```
 
@@ -409,6 +424,7 @@ DELETE /api/admin/news/[id]
 ## Conclusion
 
 Your backend structure is **exemplary**. The team clearly:
+
 - Planned the architecture upfront
 - Followed conventions consistently
 - Documented thoroughly
@@ -417,11 +433,11 @@ Your backend structure is **exemplary**. The team clearly:
 ### Final Action Items
 
 **Before First Commit:**
+
 1. `rm src/lib/date.ts`
 2. Create `.env.example`
 
-**Optional:**
-3. Move `verify-auth.mjs` to `/scripts`
+**Optional:** 3. Move `verify-auth.mjs` to `/scripts`
 
 After these 2-3 minor changes, the backend is **ready for production and frontend integration**.
 

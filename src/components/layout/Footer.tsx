@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import imgLogo from "@/assets/099112c81acd80ef13c7c5f5bbda4ccd24f36dfe.png";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
-  const t = useTranslations('Footer');
+  const t = useTranslations("Footer");
 
   return (
     <footer className="bg-[#030303] text-white">
@@ -28,13 +28,11 @@ export function Footer() {
 
           {/* Address */}
           <div className="text-center md:text-left">
-            <p className="text-[22px] mb-4">
-              {t('title')}
-            </p>
+            <p className="text-[22px] mb-4">{t("title")}</p>
             <div className="text-[12px] text-gray-300">
-              <p>{t('address.line1')}</p>
-              <p>{t('address.line2')}</p>
-              <p>{t('address.line3')}</p>
+              <p>{t("address.line1")}</p>
+              <p>{t("address.line2")}</p>
+              <p>{t("address.line3")}</p>
             </div>
           </div>
 
@@ -42,12 +40,18 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             {/* Terms & Privacy */}
             <div className="flex gap-4 text-[10px] md:text-right w-full justify-center md:justify-start">
-              <Link href="/terms" className="hover:text-[#ffe500] md:hover:scale-110 active:scale-95 transition-all whitespace-nowrap">
-                {t('links.terms')}
+              <Link
+                href="/terms"
+                className="hover:text-[#ffe500] md:hover:scale-110 active:scale-95 transition-all whitespace-nowrap"
+              >
+                {t("links.terms")}
               </Link>
               <span>/</span>
-              <Link href="/privacy" className="hover:text-[#ffe500] md:hover:scale-110 active:scale-95 transition-all whitespace-nowrap">
-                {t('links.privacy')}
+              <Link
+                href="/privacy"
+                className="hover:text-[#ffe500] md:hover:scale-110 active:scale-95 transition-all whitespace-nowrap"
+              >
+                {t("links.privacy")}
               </Link>
             </div>
 
@@ -94,7 +98,7 @@ export function Footer() {
 
       {/* Copyright */}
       <div className="bg-white text-black text-center py-2">
-        <p className="text-[12px] tracking-wider">{t('copyright')}</p>
+        <p className="text-[12px] tracking-wider">{t("copyright")}</p>
       </div>
     </footer>
   );

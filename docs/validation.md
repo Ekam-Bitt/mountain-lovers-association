@@ -1,6 +1,7 @@
 # Validation Schemas Documentation
 
 ## Overview
+
 This document describes all Zod validation schemas used across the platform. All schemas validate input data before database operations.
 
 ---
@@ -8,20 +9,24 @@ This document describes all Zod validation schemas used across the platform. All
 ## Common Validations
 
 ### Slug Schema
+
 ```typescript
 slug: string (min: 1, max: 200)
 pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
 ```
+
 Lowercase alphanumeric with hyphens only.
 
 ### Status Schema
+
 ```typescript
-status: "DRAFT" | "PUBLISHED" | "ARCHIVED"
+status: "DRAFT" | "PUBLISHED" | "ARCHIVED";
 ```
 
 ### Registration Status Schema
+
 ```typescript
-status: "PENDING" | "CONFIRMED" | "CANCELLED"
+status: "PENDING" | "CONFIRMED" | "CANCELLED";
 ```
 
 ---
@@ -29,6 +34,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ## News Schemas
 
 ### Create News
+
 **Schema**: `createNewsSchema`
 
 ```typescript
@@ -42,6 +48,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ```
 
 ### Update News
+
 **Schema**: `updateNewsSchema`
 
 ```typescript
@@ -56,11 +63,12 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ```
 
 ### Publish News
+
 **Schema**: `publishNewsSchema`
 
 ```typescript
 {
-  status: "PUBLISHED"
+  status: "PUBLISHED";
 }
 ```
 
@@ -69,6 +77,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ## Event Schemas
 
 ### Create Event
+
 **Schema**: `createEventSchema`
 
 ```typescript
@@ -87,6 +96,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 **Validation**: `endDate` must be after `startDate`
 
 ### Update Event
+
 **Schema**: `updateEventSchema`
 
 ```typescript
@@ -106,11 +116,12 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 **Validation**: If both dates provided, `endDate` must be after `startDate`
 
 ### Publish Event
+
 **Schema**: `publishEventSchema`
 
 ```typescript
 {
-  status: "PUBLISHED"
+  status: "PUBLISHED";
 }
 ```
 
@@ -119,6 +130,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ## Blog Schemas
 
 ### Create Blog
+
 **Schema**: `createBlogSchema`
 
 ```typescript
@@ -132,6 +144,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ```
 
 ### Update Blog
+
 **Schema**: `updateBlogSchema`
 
 ```typescript
@@ -146,11 +159,12 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ```
 
 ### Publish Blog
+
 **Schema**: `publishBlogSchema`
 
 ```typescript
 {
-  status: "PUBLISHED"
+  status: "PUBLISHED";
 }
 ```
 
@@ -159,6 +173,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ## EventRegistration Schemas
 
 ### Register for Event
+
 **Schema**: `registerForEventSchema`
 
 ```typescript
@@ -168,20 +183,22 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ```
 
 ### Update Registration
+
 **Schema**: `updateRegistrationSchema`
 
 ```typescript
 {
-  status: "PENDING" | "CONFIRMED" | "CANCELLED"
+  status: "PENDING" | "CONFIRMED" | "CANCELLED";
 }
 ```
 
 ### Cancel Registration
+
 **Schema**: `cancelRegistrationSchema`
 
 ```typescript
 {
-  status: "CANCELLED"
+  status: "CANCELLED";
 }
 ```
 
@@ -190,6 +207,7 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ## AdminNote Schemas
 
 ### Create AdminNote
+
 **Schema**: `createAdminNoteSchema`
 
 ```typescript
@@ -201,11 +219,12 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ```
 
 ### Update AdminNote
+
 **Schema**: `updateAdminNoteSchema`
 
 ```typescript
 {
-  content: string (required)
+  content: string(required);
 }
 ```
 
@@ -214,9 +233,11 @@ status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ## Utility Functions
 
 ### generateSlug(title: string): string
+
 Converts a title to a URL-friendly slug.
 
 **Algorithm**:
+
 1. Convert to lowercase
 2. Remove special characters
 3. Replace spaces with hyphens
@@ -224,14 +245,17 @@ Converts a title to a URL-friendly slug.
 5. Truncate to 200 characters
 
 **Example**:
+
 ```typescript
-generateSlug("Hello World! 123") // "hello-world-123"
+generateSlug("Hello World! 123"); // "hello-world-123"
 ```
 
 ### ensureSlug(data: { title: string; slug?: string }): string
+
 Returns provided slug or generates one from title.
 
 **Usage**:
+
 ```typescript
 const slug = ensureSlug({ title: "My Post", slug: undefined });
 // Result: "my-post"
@@ -242,8 +266,9 @@ const slug = ensureSlug({ title: "My Post", slug: undefined });
 ## Usage Examples
 
 ### Example 1: Validate News Creation
+
 ```typescript
-import { createNewsSchema } from '@/lib/validation';
+import { createNewsSchema } from "@/lib/validation";
 
 const data = await req.json();
 const validated = createNewsSchema.parse(data);
@@ -251,8 +276,9 @@ const validated = createNewsSchema.parse(data);
 ```
 
 ### Example 2: Partial Blog Update
+
 ```typescript
-import { updateBlogSchema } from '@/lib/validation';
+import { updateBlogSchema } from "@/lib/validation";
 
 const updates = updateBlogSchema.parse({
   title: "New Title",
@@ -261,8 +287,9 @@ const updates = updateBlogSchema.parse({
 ```
 
 ### Example 3: Date Range Validation
+
 ```typescript
-import { createEventSchema } from '@/lib/validation';
+import { createEventSchema } from "@/lib/validation";
 
 const data = createEventSchema.parse({
   title: "Mountain Climb",
