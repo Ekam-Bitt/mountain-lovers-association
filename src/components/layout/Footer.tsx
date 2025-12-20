@@ -103,7 +103,7 @@ export function Footer() {
             href="https://ekambitt.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#ffe500] hover:underline transition-colors"
+            className="hover:text-[#0356c2] hover:underline transition-colors"
           >
             {t("copyright")}
           </a>
