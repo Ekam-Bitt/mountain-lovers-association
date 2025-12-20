@@ -166,15 +166,15 @@ export function AdminBlogList({ initialBlogs }: AdminBlogListProps) {
                       )}
                       {(blog.status === "FLAGGED" ||
                         blog.status === "BANNED") && (
-                          <DropdownMenuItem
-                            onClick={() => {
-                              setSelectedBlog(blog);
-                              setModerationAction("RESTORE");
-                            }}
-                          >
-                            <Check className="mr-2 h-4 w-4" /> Restore
-                          </DropdownMenuItem>
-                        )}
+                        <DropdownMenuItem
+                          onClick={() => {
+                            setSelectedBlog(blog);
+                            setModerationAction("RESTORE");
+                          }}
+                        >
+                          <Check className="mr-2 h-4 w-4" /> Restore
+                        </DropdownMenuItem>
+                      )}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
