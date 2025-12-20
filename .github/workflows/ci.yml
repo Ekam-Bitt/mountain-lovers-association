@@ -39,7 +39,7 @@ jobs:
       - name: Validate Prisma schema
         run: npx prisma validate
         env:
-          DATABASE_URL: "file:./dev.db"
+          DATABASE_URL: "postgresql://user:password@localhost:5432/mountain_lovers?schema=public"
 
       - name: Run lint
         run: npm run lint
@@ -47,5 +47,5 @@ jobs:
       - name: Run build
         run: npm run build
         env:
-          DATABASE_URL: "file:./dev.db"
+          DATABASE_URL: "postgresql://user:password@localhost:5432/mountain_lovers?schema=public"
           JWT_SECRET: "dummy-secret-for-ci-build"
