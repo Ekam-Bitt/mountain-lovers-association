@@ -98,7 +98,16 @@ export function Footer() {
 
       {/* Copyright */}
       <div className="bg-white text-black text-center py-2">
-        <p className="text-[12px] tracking-wider">{t("copyright")}</p>
+        <p className="text-[12px] tracking-wider">
+          <a
+            href="https://ekambitt.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#ffe500] hover:underline transition-colors"
+          >
+            {t("copyright")}
+          </a>
+        </p>
       </div>
     </footer>
   );
