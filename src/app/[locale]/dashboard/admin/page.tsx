@@ -155,16 +155,16 @@ export default function AdminDashboard() {
         </header>
 
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="bg-white/10 border border-white/20">
+          <TabsList className="bg-white/20 border border-white/30">
             <TabsTrigger
               value="overview"
-              className="data-[state=active]:bg-[#ffe500] data-[state=active]:text-black text-white"
+              className="data-[state=active]:bg-transparent data-[state=active]:text-[#ffe500] data-[state=active]:border-[#ffe500] text-white/70 hover:text-white transition-colors"
             >
               Overview
             </TabsTrigger>
             <TabsTrigger
               value="content"
-              className="data-[state=active]:bg-[#ffe500] data-[state=active]:text-black text-white"
+              className="data-[state=active]:bg-transparent data-[state=active]:text-[#ffe500] data-[state=active]:border-[#ffe500] text-white/70 hover:text-white transition-colors"
             >
               Content Management
             </TabsTrigger>

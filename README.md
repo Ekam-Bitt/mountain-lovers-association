@@ -1,202 +1,63 @@
-# Mountain Lovers Association - Backend
+# Mountain Lover's Association
 
-Production-grade backend API for a local mountain climbing club platform built with Next.js App Router, Prisma, and PostgreSQL (currently SQLite for development).
-
-## Quick Start
-
-### 1. Install Dependencies
-
-```bash
-npm install
-```
-
-### 2. Setup Environment
-
-Create `.env`:
-
-```env
-DATABASE_URL="file:./dev.db"
-JWT_SECRET="your-super-secret-jwt-key-change-in-production"
-```
-
-### 3. Setup Database
-
-```bash
-# Generate Prisma Client
-npx prisma generate
-
-# Push schema to database
-npx prisma db push
-
-# Seed initial data (creates admin user)
-npx prisma db seed
-```
-
-### 4. Run Development Server
-
-```bash
-npm run dev
-```
-
-API available at: `http://localhost:3000/api`
+A digital sanctuary for the mountaineering community. The Mountain Lover's Association platform connects outdoor enthusiasts through organized expeditions, community blogs, and exclusive events. It features a robust membership system, live news feeds for climbing updates, and a comprehensive event management system for upcoming treks and workshops.
 
 ---
 
-## Default Credentials
-
-After seeding:
-
-- **Admin**: `admin@example.com` / `Admin123!@#`
-- **Member**: `member@example.com` / `Member123!@#`
-
----
-
-## Project Structure
-
-```
-/src
-├── app/api/          # API route handlers
-│   ├── auth/         # Authentication (signup, login, logout)
-│   ├── admin/        # Admin-only routes (news, events, notes)
-│   ├── member/       # Member routes (blogs, registrations)
-│   └── public/       # Public read-only content
-├── lib/              # Infrastructure & Validators
-│   ├── config.ts     # Env validation
-│   ├── db.ts         # Prisma client
-│   ├── errors.ts     # Error handling classes
-│   └── validation.ts # Zod schemas
-├── services/         # Business Logic Layer
-│   ├── auth.service.ts
-│   ├── blog.service.ts
-│   ├── event.service.ts
-│   └── audit.service.ts
-├── types/            # TypeScript Definitions
-│   ├── dto.ts        # API Response Shapes
-│   └── domain.ts     # Frontend UI Models
-└── proxy.ts          # Security Headers & Intl (formerly middleware)
-
-/prisma
-├── schema.prisma     # Database schema (7 models)
-└── seed.ts           # Seed data script
-
-/docs                 # Comprehensive documentation
-```
-
----
-
-## Documentation
-
-- **[Folder Structure](docs/folder-structure.md)** - Project organization
-- **[Auth Flow](docs/auth-flow.md)** - Authentication & authorization
-- **[API Contracts](docs/api-contracts.md)** - Complete API reference
-- **[Validation](docs/validation.md)** - Request validation schemas
-- **[Error Handling](docs/error-handling.md)** - Error response format
-
----
-
-## Key Features
-
-### Authentication & Authorization
-
-- JWT-based auth with HTTP-only cookies
-- Role-based access control (ADMIN, MEMBER_VERIFIED, MEMBER_UNVERIFIED)
-- Progressive brute-force protection (5/10/15 failed attempts)
-- Rate limiting on auth endpoints (5 req/min)
-
-### Content Management
-
-- **Admin**: News & Events (full CRUD, publishing workflow)
-- **Members**: Blogs (ownership-based access)
-- **Public**: Read-only cached endpoints (5-min cache)
-
-### Event Registration
-
-- Capacity enforcement
-- Idempotent registration
-- Status management (PENDING → CONFIRMED/CANCELLED)
-- Rate limited (10 reg/hour per IP)
-
-### Security
-
-- Argon2 password hashing
-- Security headers (HSTS, CSP, XSS protection)
-- Soft deletes on all models
-- Complete audit logging
-
----
-
-## Database
-
-### Models
-
-- User (with role-based access)
-- News, Event, Blog (with publishing workflow)
-- EventRegistration (with capacity management)
-- AdminNote (internal operational notes)
-- AuditLog (immutable audit trail)
-
-### Migrations
-
-```bash
-# Create migration
-npx prisma migrate dev --name description
-
-# Apply migrations
-npx prisma migrate deploy
-```
-
-### Prisma Studio
-
-```bash
-npx prisma studio
-```
-
----
-
-## Development
-
-### Run Dev Server
-
-```bash
-npm run dev
-```
-
-### Type Check
-
-```bash
-npx tsc --noEmit
-```
-
-### Reset Database
-
-```bash
-npx prisma migrate reset
-npx prisma db seed
-```
-
----
-
-## Environment Variables
-
-| Variable       | Description                | Default         |
-| -------------- | -------------------------- | --------------- |
-| `DATABASE_URL` | Database connection string | `file:./dev.db` |
-| `JWT_SECRET`   | Secret for JWT signing     | Required        |
-| `NODE_ENV`     | Environment                | `development`   |
-
----
-
-## Tech Stack
+## 🛠 Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
-- **Database**: PostgreSQL (SQLite for dev)
-- **ORM**: Prisma 5
-- **Auth**: JWT (jose), Argon2
-- **Validation**: Zod
-- **Rate Limiting**: rate-limiter-flexible
+- **Language**: TypeScript
+- **Database**: PostgreSQL (Neon Serverless)
+- **ORM**: Prisma
+- **Authentication**: Custom JWT (JOSE + Argon2)
+- **Styling**: Tailwind CSS v4
+- **Storage**: Vercel Blob (Images/Media)
+- **Deployment**: Vercel
 
----
+## 🚀 Getting Started
 
-## License
+1.  **Clone & Install**
 
-MIT
+    ```bash
+    git clone https://github.com/Ekam-Bitt/mountain-lovers-association.git
+    cd mountain-lovers-association
+    npm install
+    ```
+
+2.  **Environment Variables**
+    Create a `.env` file locally:
+
+    ```bash
+    # Database (dev or prod url)
+    DATABASE_URL="postgresql://..."
+
+    # Auth
+    JWT_SECRET="your-secret-key"
+
+    # API
+    NEXT_PUBLIC_API_URL="/api"
+    ```
+
+3.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+
+## 📂 Architecture & Deployment
+
+### Database (Neon Postgres)
+
+We use **Neon** as our serverless PostgreSQL provider to handle scaling and branching.
+
+- **Connection**: Managed via `DATABASE_URL` in Vercel.
+- **Management**: Admin tasks can be done via Vercel Storage console or local `npx prisma studio`.
+
+### File Storage (Vercel Blob)
+
+We currently use **Vercel Blob** for storing user avatars and blog images.
+
+- **Endpoint**: `/api/upload` uses `@vercel/blob` SDK.
+- **Why?** Seamless integration with Vercel serverless functions (which have read-only filesystems).
+
+> **Future Optimization Note**: As storage needs grow, migrate to **Cloudflare R2** to eliminate egress fees for high-volume media serving.

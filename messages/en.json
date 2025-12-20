@@ -151,9 +151,9 @@
   "Header": {
     "nav": {
       "membership": "MEMBERSHIP",
-      "programs": "PROGRAMS",
+      "events": "EVENTS",
       "media": "MEDIA",
-      "blog": "BLOG",
+      "blogs": "BLOGS",
       "about": "ABOUT",
       "contact": "CONTACT",
       "login": "LOGIN"

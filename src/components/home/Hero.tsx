@@ -15,6 +15,7 @@ export function Hero() {
           src={imgHeroBg}
           alt="Hero background"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

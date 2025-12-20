@@ -46,7 +46,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await api.post("/auth/logout", {});
       setUser(null);
       router.push("/");
-      router.refresh(); // Refresh to update server components (if any)
     } catch (error) {
       console.error("Logout failed:", error);
     }

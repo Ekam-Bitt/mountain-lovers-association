@@ -127,16 +127,16 @@ export default function MemberDashboard() {
         </div>
 
         <Tabs defaultValue="events" className="w-full">
-          <TabsList className="mb-4 bg-white/10 border-white/20">
+          <TabsList className="mb-4 bg-white/30 border-white/30">
             <TabsTrigger
               value="events"
-              className="data-[state=active]:bg-[#ffe500] data-[state=active]:text-black text-white"
+              className="data-[state=active]:bg-black data-[state=active]:text-[#ffe500] data-[state=active]:border-[#ffe500] text-white/70 hover:text-white transition-colors"
             >
               My Events
             </TabsTrigger>
             <TabsTrigger
               value="blogs"
-              className="data-[state=active]:bg-[#ffe500] data-[state=active]:text-black text-white"
+              className="data-[state=active]:bg-black data-[state=active]:text-[#ffe500] data-[state=active]:border-[#ffe500] text-white/70 hover:text-white"
             >
               My Blogs
             </TabsTrigger>

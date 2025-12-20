@@ -151,9 +151,9 @@
   "Header": {
     "nav": {
       "membership": "সদস্যপদ",
-      "programs": "কার্যক্রম",
+      "events": "ঘটনা",
       "media": "মিডিয়া",
-      "blog": "ব্লগ",
+      "blogs": "ব্লগ",
       "about": "সম্পর্কে",
       "contact": "যোগাযোগ",
       "login": "লগইন"

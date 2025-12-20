@@ -52,20 +52,20 @@ export default async function NewsDetailPage({
 
   return (
     <div className="min-h-screen bg-[#0356c2] pb-20 pt-32">
-      <article className="max-w-4xl mx-auto px-6 bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+      <article className="max-w-4xl mx-auto px-6">
         {/* Header */}
-        <header className="text-center mb-12">
-          <h1 className="text-[#0356c2] text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <header className="mb-12">
+          <h1 className="text-[#ffe500] text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {news.title}
           </h1>
 
-          <div className="flex items-center justify-center gap-6 text-black/60">
+          <div className="text-white text-lg mb-8">
             <time dateTime={news.date}>{formatDate(news.date, locale)}</time>
           </div>
         </header>
 
         {/* Featured Image */}
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-lg">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-2xl">
           <Image
             src={news.image}
             alt={news.title}
@@ -76,8 +76,7 @@ export default async function NewsDetailPage({
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none prose-headings:text-[#0356c2] prose-p:text-black/80 prose-strong:text-black">
-          {/* Render content safely if it's HTML, or as text if plain. Assuming plain or safe HTML for now. */}
+        <div className="text-[#9cd4fc] text-lg leading-relaxed space-y-4">
           <div
             dangerouslySetInnerHTML={{
               __html: (news.description || "").replace(/\n/g, "<br/>"),

@@ -7,6 +7,9 @@ import { EventItem } from "@/types/domain";
 import { PublicApiService } from "@/lib/services/public-api";
 import { Calendar, Users } from "lucide-react";
 
+// Revalidate every 60 seconds to show new events
+export const revalidate = 60;
+
 async function getAllEvents(): Promise<EventItem[]> {
   try {
     // Fetch a large number of events to handle sorting server-side for now

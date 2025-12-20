@@ -26,9 +26,9 @@ export function Header() {
 
   const baseNavKeys = [
     "membership",
-    "programs",
+    "events",
     "media",
-    "blog",
+    "blogs",
     "about",
     "contact",
   ];
@@ -36,9 +36,9 @@ export function Header() {
   // Ensure these match the IDs in your page sections
   const sectionMap: Record<string, string> = {
     membership: "membership",
-    programs: "programs",
+    events: "events",
     media: "news",
-    blog: "blog",
+    blogs: "blogs",
     about: "about",
     contact: "contact",
   };
@@ -68,6 +68,20 @@ export function Header() {
       return;
     }
 
+    // Direct page navigation for events and blogs
+    if (key === "events") {
+      router.push("/events");
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    if (key === "blogs") {
+      router.push("/blogs");
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Anchor link navigation for sections on homepage
     const sectionId = sectionMap[key] || key;
     const element = document.getElementById(sectionId);
 

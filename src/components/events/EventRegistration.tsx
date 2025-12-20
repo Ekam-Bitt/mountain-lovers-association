@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Loader2, CheckCircle, AlertCircle, Calendar } from "lucide-react";
 
 interface EventRegistrationProps {
   eventId: string;
@@ -93,15 +93,17 @@ export function EventRegistration({
   };
 
   if (authLoading || !initialCheckDone) {
-    return <div className="h-12 w-32 bg-gray-100 animate-pulse rounded-lg" />;
+    return (
+      <div className="h-16 w-48 bg-white/10 animate-pulse rounded-xl border border-white/20" />
+    );
   }
 
   if (status === "CONFIRMED" || status === "PENDING") {
     return (
-      <div className="flex items-center gap-2 text-green-600 font-medium bg-green-50 px-4 py-2 rounded-lg border border-green-100">
-        <CheckCircle className="w-5 h-5" />
+      <div className="flex items-center gap-3 bg-green-500 text-white px-6 py-4 rounded-xl font-bold text-lg shadow-lg border-2 border-green-400">
+        <CheckCircle className="w-6 h-6 flex-shrink-0" />
         <span>
-          {status === "CONFIRMED" ? "Registered" : "Registration Pending"}
+          {status === "CONFIRMED" ? "✓ REGISTERED" : "⏳ PENDING APPROVAL"}
         </span>
       </div>
     );
@@ -112,9 +114,10 @@ export function EventRegistration({
     return (
       <Button
         onClick={() => router.push(`/login?redirect=/events/${eventId}`)}
-        className="bg-[#0356c2] hover:bg-[#02449a] text-white"
+        className="bg-[#ffe500] hover:bg-[#ffd700] text-black font-bold text-lg px-8 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border-2 border-[#ffd700] min-w-[200px] h-auto"
       >
-        Login to Register
+        <Calendar className="mr-2 h-5 w-5" />
+        LOGIN TO REGISTER
       </Button>
     );
   }
@@ -123,23 +126,24 @@ export function EventRegistration({
   const isUnverified = user?.role === "MEMBER_UNVERIFIED";
 
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className="flex flex-col items-start gap-3">
       <Button
         onClick={handleRegister}
-        disabled={loading}
-        className={`min-w-[140px] ${
+        disabled={loading || isUnverified}
+        className={`font-bold text-lg px-8 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border-2 min-w-[200px] h-auto ${
           isUnverified
-            ? "bg-gray-500 hover:bg-gray-600" // Visual cue or just normal button?
-            : "bg-[#0356c2] hover:bg-[#02449a]"
-        } text-white`}
+            ? "bg-gray-600 hover:bg-gray-600 border-gray-500 cursor-not-allowed opacity-60"
+            : "bg-[#ffe500] hover:bg-[#ffd700] text-black border-[#ffd700]"
+        }`}
       >
-        {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-        Register
+        {loading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+        {!loading && <Calendar className="mr-2 h-5 w-5" />}
+        REGISTER NOW
       </Button>
       {isUnverified && (
-        <p className="text-xs text-amber-600 flex items-center gap-1">
-          <AlertCircle className="w-3 h-3" />
-          Verification required
+        <p className="text-amber-400 flex items-center gap-2 font-semibold bg-amber-500/20 px-4 py-2 rounded-lg border border-amber-500/30">
+          <AlertCircle className="w-4 h-4" />
+          Verification required to register
         </p>
       )}
     </div>

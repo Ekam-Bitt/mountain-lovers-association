@@ -84,6 +84,7 @@ export const createBlogSchema = z.object({
   slug: slugSchema.optional(), // Auto-generated if not provided
   content: z.string().min(1, "Content is required"),
   excerpt: z.string().max(500).optional(),
+  image: z.string().optional(),
   status: statusSchema.optional().default("DRAFT"),
 });
 

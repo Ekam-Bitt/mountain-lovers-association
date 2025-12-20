@@ -57,38 +57,38 @@ export function Footer() {
 
             {/* Social Media */}
             <div className="space-y-4">
-              <div className="flex gap-4">
+              <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-center md:items-start">
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
+                  className="w-[32px] h-[32px] md:w-[40px] md:h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
                 >
-                  <FaFacebook size={20} />
+                  <FaFacebook className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
+                  className="w-[32px] h-[32px] md:w-[40px] md:h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
                 >
-                  <FaInstagram size={20} />
+                  <FaInstagram className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
                 <a
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
+                  className="w-[32px] h-[32px] md:w-[40px] md:h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
                 >
-                  <FaTwitter size={20} />
+                  <FaTwitter className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
                 <a
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
+                  className="w-[32px] h-[32px] md:w-[40px] md:h-[40px] bg-white rounded-full flex items-center justify-center text-black hover:bg-[#ffe500] hover:text-black transition-all transform hover:scale-110"
                 >
-                  <FaYoutube size={20} />
+                  <FaYoutube className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
               </div>
             </div>

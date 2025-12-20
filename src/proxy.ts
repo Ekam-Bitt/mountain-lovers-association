@@ -36,7 +36,7 @@ export default function proxy(request: NextRequest) {
   // 'unsafe-eval' is required for some next-intl functionality in dev
   response.headers.set(
     "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self';",
+    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self' https://va.vercel-scripts.com; worker-src 'self' 'unsafe-eval' blob:;",
   );
 
   return response;

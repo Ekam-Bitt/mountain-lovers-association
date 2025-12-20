@@ -52,7 +52,7 @@ export function BlogForm({
       title: "",
       content: "",
       image: "",
-      status: "DRAFT",
+      status: "PUBLISHED",
     },
   });
 

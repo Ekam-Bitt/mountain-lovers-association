@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile } from "fs/promises";
+import { put } from "@vercel/blob";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,22 +12,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file received." }, { status: 400 });
     }
 
-    const buffer = Buffer.from(await file.arrayBuffer());
     const filename = `${uuidv4()}${path.extname(file.name)}`;
-    const uploadDir = path.join(process.cwd(), "public/uploads");
 
-    try {
-      await writeFile(path.join(uploadDir, filename), buffer);
-    } catch (error) {
-      console.error("Error writing file:", error);
-      return NextResponse.json(
-        { error: "Failed to save file." },
-        { status: 500 },
-      );
-    }
+    const blob = await put(filename, file, {
+      access: "public",
+    });
 
     return NextResponse.json({
-      url: `/uploads/${filename}`,
+      url: blob.url,
     });
   } catch (error) {
     console.error("Upload error:", error);

@@ -6,6 +6,9 @@ import { formatDate } from "@/lib/utils";
 import { BlogItem } from "@/types/domain";
 import { PublicApiService } from "@/lib/services/public-api";
 
+// Revalidate every 60 seconds to show new blogs
+export const revalidate = 60;
+
 async function getBlogs(): Promise<BlogItem[]> {
   try {
     const response = await PublicApiService.getBlogs({ limit: 50 });
