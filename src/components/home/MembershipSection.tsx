@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import imgMembership from "@/assets/1487fb9b56fc9a075eeb3555a15f1ce90fc4a202.png";
-import imgMap from "@/assets/fe369899f9499675e74faf19aa84ec1403c41212.png";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 // import { toast } from "sonner";
@@ -43,18 +42,16 @@ export function MembershipSection() {
 
             {/* Map */}
             <div className="relative border border-[#013370] overflow-hidden h-[200px] md:h-[284px]">
-              <Image
-                src={imgMap}
-                alt="Location map"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 25vw"
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7306.983336871607!2d86.9554503!3d23.6941301!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f71f5e940bcda9%3A0x9d6da1811bae186c!2sMOUNTAIN%20LOVERS&#39;%20ASSOCIATION!5e0!3m2!1sen!2sin!4v1766254456758!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Map location of Mountain Lover's Association"
               />
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded">
-                <p className="text-[#035bc1] text-xs text-center whitespace-nowrap">
-                  {t("visitOffice")}
-                </p>
-              </div>
             </div>
           </div>
         </div>

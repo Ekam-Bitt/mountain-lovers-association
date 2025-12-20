@@ -86,6 +86,8 @@ export function AdminUserList({ initialUsers }: AdminUserListProps) {
     <div className="space-y-4">
       <form onSubmit={handleSearch} className="flex gap-2">
         <Input
+          name="search"
+          aria-label="Search users"
           placeholder="Search by email..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}

@@ -89,6 +89,8 @@ export function AdminBlogList({ initialBlogs }: AdminBlogListProps) {
     <div className="space-y-4">
       <form onSubmit={handleSearch} className="flex gap-2">
         <Input
+          name="search"
+          aria-label="Search blogs"
           placeholder="Search blogs..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}

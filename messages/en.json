@@ -57,11 +57,21 @@
   },
   "AboutSection": {
     "title": "ABOUT",
-    "p1": "The International Federation of Mountain Guides Associations (IFMGA) is an international umbrella for mountain guide associations from 25 countries in Europe, Asia, the Americas, and Oceania, representing a total of almost 7,000 guides who are licensed according to IFMGA training standards.",
-    "p2": "As mountain guides, we are exposed to rapid and unprecedented changes in our mountain work environment due to the impact of climate change. The speed and change of intensity of earth systems events presents unprecedented risk mitigation challenges requiring rapid strategies and adaptations to reduce our vulnerabilities. This is true not only for mountain guides but for the lives and livelihoods of all inhabitants of mountain regions.",
-    "p3": "It is our responsibility to act immediately and collectively, not only to limit climate change in the coming decades, but also in the face of many other environmental crises that are equally immediate and urgent, including habitat degradation and biodiversity loss. Young guides have a central role in developing new ways of thinking about sustainable mountain guiding, creating new practices and building strategies to safeguard our clients and ourselves.",
-    "p4": "IFMGA will collaborate with partners including the Mountain Partnership Secretariat on a definition and methods for Sustainable Mountain Guiding (SMG) and develop implementation documents, resources and training for mountain guides.",
-    "p5": "Sustainable mountain guiding is grounded in UN 2030 Agenda for Sustainable Development and its 17 Sustainable Development Goals and the UN resolution on Sustainable Mountain Development."
+    "intro": "Founded in Asansol, the Mountain Lover’s Association is a community of trekkers, climbers, and nature enthusiasts dedicated to responsible mountain exploration across West Bengal and beyond. We organize training courses, guided outings, and safety workshops, and we share reliable information to help members grow their skills—from trek planning and navigation to rock climbing techniques and environmental stewardship.",
+    "missionTitle": "Our mission is simple:",
+    "missionList": {
+      "item1": "Promote safe and ethical mountaineering",
+      "item2": "Build an inclusive community for beginners and experienced climbers alike",
+      "item3": "Protect mountain ecosystems through awareness and action"
+    },
+    "whatDoTitle": "What we do:",
+    "whatDoList": {
+      "item1": "Skills training: rock climbing fundamentals, rope work, and safety practices",
+      "item2": "Events and expeditions across hills and crags in the region",
+      "item3": "Community media: trip reports, photos, and blogs",
+      "item4": "Partnerships and knowledge-sharing with allied clubs and experts"
+    },
+    "closing": "MLA is run by volunteers and instructors who believe mountains should be enjoyed responsibly. Join us to learn, climb, and contribute to a culture of safety and sustainability."
   },
   "Newsletter": {
     "quote": "Climb the mountain not to plant your flag, but to embrace the challenge, to enjoy the air and behold the view.",
