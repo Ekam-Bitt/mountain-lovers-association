@@ -56,22 +56,22 @@
     "visitOffice": "আমাদের অফিসে আসুন"
   },
   "AboutSection": {
-    "title": "ABOUT",
-    "intro": "Founded in Asansol, the Mountain Lover’s Association is a community of trekkers, climbers, and nature enthusiasts dedicated to responsible mountain exploration across West Bengal and beyond. We organize training courses, guided outings, and safety workshops, and we share reliable information to help members grow their skills—from trek planning and navigation to rock climbing techniques and environmental stewardship.",
-    "missionTitle": "Our mission is simple:",
+    "title": "আমাদের সম্পর্কে",
+    "intro": "আসানসোলে প্রতিষ্ঠিত, মাউন্টেন লাভার্স অ্যাসোসিয়েশন হল ট্রেকার, পর্বতারোহী এবং প্রকৃতি প্রেমীদের একটি সম্প্রদায় যা পশ্চিমবঙ্গ এবং তার বাইরে দায়িত্বশীল পর্বত অন্বেষণে নিবেদিত। আমরা প্রশিক্ষণ কোর্স, নির্দেশিত ভ্রমণ এবং নিরাপত্তা কর্মশালার আয়োজন করি, এবং আমরা সদস্যদের তাদের দক্ষতা বৃদ্ধিতে সহায়তা করার জন্য নির্ভরযোগ্য তথ্য শেয়ার করি—ট্রেক পরিকল্পনা এবং নেভিগেশন থেকে শুরু করে রক ক্লাইম্বিং কৌশল এবং পরিবেশগত তত্ত্বাবধান পর্যন্ত।",
+    "missionTitle": "আমাদের লক্ষ্য সহজ:",
     "missionList": {
-      "item1": "Promote safe and ethical mountaineering",
-      "item2": "Build an inclusive community for beginners and experienced climbers alike",
-      "item3": "Protect mountain ecosystems through awareness and action"
+      "item1": "নিরাপদ এবং নৈতিক পর্বতারোহন প্রচার করা",
+      "item2": "নতুন এবং অভিজ্ঞ পর্বতারোহীদের জন্য একইভাবে একটি অন্তর্ভুক্তিমূলক সম্প্রদায় গড়ে তোলা",
+      "item3": "সচেতনতা এবং কর্মের মাধ্যমে পর্বত বাস্তুতন্ত্র রক্ষা করা"
     },
-    "whatDoTitle": "What we do:",
+    "whatDoTitle": "আমরা যা করি:",
     "whatDoList": {
-      "item1": "Skills training: rock climbing fundamentals, rope work, and safety practices",
-      "item2": "Events and expeditions across hills and crags in the region",
-      "item3": "Community media: trip reports, photos, and blogs",
-      "item4": "Partnerships and knowledge-sharing with allied clubs and experts"
+      "item1": "দক্ষতা প্রশিক্ষণ: রক ক্লাইম্বিং এর মৌলিক বিষয়, দড়ির কাজ এবং নিরাপত্তা অনুশীলন",
+      "item2": "অঞ্চল জুড়ে পাহাড় এবং ক্লিফগুলিতে ইভেন্ট এবং অভিযান",
+      "item3": "কমিউনিটি মিডিয়া: ট্রিপ রিপোর্ট, ছবি এবং ব্লগ",
+      "item4": "মিত্র ক্লাব এবং বিশেষজ্ঞদের সাথে অংশীদারিত্ব এবং জ্ঞান ভাগ করে নেওয়া"
     },
-    "closing": "MLA is run by volunteers and instructors who believe mountains should be enjoyed responsibly. Join us to learn, climb, and contribute to a culture of safety and sustainability."
+    "closing": "এমএলএ স্বেচ্ছাসেবক এবং প্রশিক্ষকদের দ্বারা পরিচালিত হয় যারা বিশ্বাস করে যে পাহাড়গুলিকে দায়িত্বের সাথে উপভোগ করা উচিত। শিখতে, চড়তে এবং নিরাপত্তা ও স্থায়িত্বের সংস্কৃতিতে অবদান রাখতে আমাদের সাথে যোগ দিন।"
   },
   "Newsletter": {
     "quote": "পাহাড়ে চড়ুন আপনার পতাকা পুঁততে নয়, বরং চ্যালেঞ্জকে গ্রহণ করতে, বাতাস উপভোগ করতে এবং দৃশ্য দেখতে।",
