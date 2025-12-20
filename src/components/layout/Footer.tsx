@@ -57,7 +57,7 @@ export function Footer() {
 
             {/* Social Media */}
             <div className="space-y-4">
-              <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-center md:items-start">
+              <div className="flex flex-row gap-4 justify-center md:justify-start">
                 <a
                   href="https://facebook.com"
                   target="_blank"
