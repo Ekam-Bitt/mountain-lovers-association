@@ -31,9 +31,37 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
+
   return {
+    metadataBase: new URL(baseUrl),
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      // Use absolute URL or let metadataBase handle it if relative.
+      // Keeping it explicit for the page URL helps canonicalization.
+      url: `https://mountain-lovers-association.vercel.app/${locale}`,
+      siteName: t("title"),
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/og-image.png"],
+    },
   };
 }
 
