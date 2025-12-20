@@ -56,12 +56,22 @@
     "visitOffice": "আমাদের অফিসে আসুন"
   },
   "AboutSection": {
-    "title": "আমাদের সম্পর্কে",
-    "p1": "ইন্টারন্যাশনাল ফেডারেশন অফ মাউন্টেন গাইড অ্যাসোসিয়েশন (IFMGA) ...",
-    "p2": "মাউন্টেন গাইড হিসেবে, আমরা দ্রুত এবং অভূতপূর্ব পরিবর্তনের সম্মুখীন হচ্ছি...",
-    "p3": "অবিলম্বে এবং সম্মিলিতভাবে কাজ করা আমাদের দায়িত্ব...",
-    "p4": "IFMGA পার্টনারদের সাথে সহযোগিতা করবে...",
-    "p5": "টেকসই মাউন্টেন গাইডিং UN 2030 এজেন্ডার উপর ভিত্তি করে..."
+    "title": "ABOUT",
+    "intro": "Founded in Asansol, the Mountain Lover’s Association is a community of trekkers, climbers, and nature enthusiasts dedicated to responsible mountain exploration across West Bengal and beyond. We organize training courses, guided outings, and safety workshops, and we share reliable information to help members grow their skills—from trek planning and navigation to rock climbing techniques and environmental stewardship.",
+    "missionTitle": "Our mission is simple:",
+    "missionList": {
+      "item1": "Promote safe and ethical mountaineering",
+      "item2": "Build an inclusive community for beginners and experienced climbers alike",
+      "item3": "Protect mountain ecosystems through awareness and action"
+    },
+    "whatDoTitle": "What we do:",
+    "whatDoList": {
+      "item1": "Skills training: rock climbing fundamentals, rope work, and safety practices",
+      "item2": "Events and expeditions across hills and crags in the region",
+      "item3": "Community media: trip reports, photos, and blogs",
+      "item4": "Partnerships and knowledge-sharing with allied clubs and experts"
+    },
+    "closing": "MLA is run by volunteers and instructors who believe mountains should be enjoyed responsibly. Join us to learn, climb, and contribute to a culture of safety and sustainability."
   },
   "Newsletter": {
     "quote": "পাহাড়ে চড়ুন আপনার পতাকা পুঁততে নয়, বরং চ্যালেঞ্জকে গ্রহণ করতে, বাতাস উপভোগ করতে এবং দৃশ্য দেখতে।",

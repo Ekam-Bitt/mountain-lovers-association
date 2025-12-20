@@ -31,12 +31,33 @@ export function AboutSection() {
         </h2>
 
         {/* Text Content */}
-        <div className="text-white text-[20px] leading-relaxed space-y-6 tracking-wide">
-          <p>{t("p1")}</p>
-          <p>{t("p2")}</p>
-          <p>{t("p3")}</p>
-          <p>{t("p4")}</p>
-          <p>{t("p5")}</p>
+        <div className="text-white text-[18px] md:text-[20px] leading-relaxed tracking-wide space-y-8">
+          <p>{t("intro")}</p>
+
+          <div className="space-y-4">
+            <h3 className="text-[#ffe500] font-bold text-2xl">
+              {t("missionTitle")}
+            </h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>{t("missionList.item1")}</li>
+              <li>{t("missionList.item2")}</li>
+              <li>{t("missionList.item3")}</li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-[#ffe500] font-bold text-2xl">
+              {t("whatDoTitle")}
+            </h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>{t("whatDoList.item1")}</li>
+              <li>{t("whatDoList.item2")}</li>
+              <li>{t("whatDoList.item3")}</li>
+              <li>{t("whatDoList.item4")}</li>
+            </ul>
+          </div>
+
+          <p>{t("closing")}</p>
         </div>
       </div>
     </section>
