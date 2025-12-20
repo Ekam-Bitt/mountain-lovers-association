@@ -89,6 +89,8 @@ export function AdminBlogList({ initialBlogs }: AdminBlogListProps) {
     <div className="space-y-4">
       <form onSubmit={handleSearch} className="flex gap-2">
         <Input
+          name="search"
+          aria-label="Search blogs"
           placeholder="Search blogs..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -164,15 +166,15 @@ export function AdminBlogList({ initialBlogs }: AdminBlogListProps) {
                       )}
                       {(blog.status === "FLAGGED" ||
                         blog.status === "BANNED") && (
-                        <DropdownMenuItem
-                          onClick={() => {
-                            setSelectedBlog(blog);
-                            setModerationAction("RESTORE");
-                          }}
-                        >
-                          <Check className="mr-2 h-4 w-4" /> Restore
-                        </DropdownMenuItem>
-                      )}
+                          <DropdownMenuItem
+                            onClick={() => {
+                              setSelectedBlog(blog);
+                              setModerationAction("RESTORE");
+                            }}
+                          >
+                            <Check className="mr-2 h-4 w-4" /> Restore
+                          </DropdownMenuItem>
+                        )}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

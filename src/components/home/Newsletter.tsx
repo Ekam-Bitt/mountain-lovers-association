@@ -49,13 +49,13 @@ export function Newsletter() {
           className="flex flex-col md:flex-row items-center gap-4 md:gap-0 max-w-[900px] mx-auto"
         >
           <label
-            htmlFor="email"
+            htmlFor="newsletter-email"
             className="text-black text-[18px] md:text-[25px] tracking-wider md:mr-4 text-center md:text-left whitespace-nowrap"
           >
             {t("label")}
           </label>
           <input
-            id="email"
+            id="newsletter-email"
             name="email"
             type="email"
             value={email}
